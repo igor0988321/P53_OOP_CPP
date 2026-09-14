@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="P53_OOP_C++/P53_OOP_C++.vcxproj" />
+</Solution>
