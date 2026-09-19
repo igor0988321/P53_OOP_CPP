@@ -13,10 +13,10 @@
 using namespace std;
 
 
-void printArray(const Array& a)
-{
-	a.show();
-}
+//void printArray(const Array& a)
+//{
+//	a.show();
+//}
 
 
 int main()
@@ -24,28 +24,24 @@ int main()
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	//19.09.2026 Home Work 3
+
+	Reservoir blacksea("more", ReservoirType::Sea, 12343, 1233, 12334);
+	blacksea.display();
+
 	//18.09.2026 Lesson 3
 
-	Reservoir r(ReservoirType::Lake);
 
-	if (ReservoirType::Lake == r.getType())
-	{
-		cout << "Reservoir is a lake." << endl;
-	}
-	else
-	{
-		cout << "Reservoir is not a lake." << endl;
-	}
 
-	Time t(1, 1);
+	//Time t(1, 1);
 
-	Array* arr = new Array(5);
-	arr->setRandom();
+	//Array* arr = new Array(5);
+	//arr->setRandom();
 
-	Student s1(1, "Vasya", 30);
-	Array a(10);
-	a.setRandom(); // setRandom(a)
-	a.show();
+	//Student s1(1, "Vasya", 30);
+	//Array a(10);
+	//a.setRandom(); // setRandom(a)
+	//a.show();
 
 	//15.09.2026 Home Work 2
 	// 
