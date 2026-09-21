@@ -11,7 +11,12 @@ class Array
 
 public:
 	Array();
-	Array(int s);
+	
+	explicit Array(int s);
+
+	Array(const Array& obj);
+
+	Array& operator=(const Array& obj);
 	~Array();
 
 	void setRandom();
@@ -40,6 +45,37 @@ Array::Array(int s)
 {
 	size = s;
 	arr = new int[size] {0};
+}
+
+Array::Array(const Array& obj)
+{
+
+	size = obj.size;
+	arr = new int[size];
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = obj.arr[i];
+	}
+	cout << "CopyConstr " << arr << endl;
+}
+
+Array& Array::operator=(const Array& obj)
+{
+	if (this == &obj)
+	{
+		return *this;
+	}
+
+	delete[] arr;
+
+	size = obj.size;
+	arr = new int[size];
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = obj.arr[i];
+	}
+
+	return *this;
 }
 
 Array::~Array()

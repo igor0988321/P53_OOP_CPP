@@ -18,16 +18,39 @@ using namespace std;
 //	a.show();
 //}
 
+void printArray(Array a)
+{
+	a.show();
+}
+
 
 int main()
 {
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 21.09.2026 Lesson 4
+
+
+	/*Array a(10);
+	a.setRand();
+	a.show();
+	Array b(15);
+	b.setRand();
+	b = b;
+	b.show();*/
+
+
+	//printArray(a);
+	/*a.show();*/
+
+	//Array b(a);
+	//Array c = a;
+
 	//19.09.2026 Home Work 3
 
-	Reservoir blacksea("more", ReservoirType::Sea, 12343, 1233, 12334);
-	blacksea.display();
+	//Reservoir blacksea("more", ReservoirType::Sea, 12343, 1233, 12334);
+	//blacksea.display();
 
 	//18.09.2026 Lesson 3
 
