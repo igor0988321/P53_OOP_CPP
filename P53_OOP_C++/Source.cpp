@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+
 #include <windows.h>
 
 #include"Student.h"
@@ -8,6 +9,7 @@
 #include"Time.h"
 #include"Reservoir.h"
 #include"String.h"
+#include"Worker.h"
 
 
 using namespace std;
@@ -24,10 +26,41 @@ void printArray(Array a)
 }
 
 
-int main()
-{
+int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
+
+	// 22.09.2026 Home Work 4
+
+
+	int size = 3;
+	Worker workers[3] = {
+		Worker("Вася ", "ppppppp", 2011, 25555),
+		Worker("Андрій ", " інженер ", 2013, 25765),
+		Worker("Катя ", " інженер ", 2015, 2598787)
+	};
+	int year_v = 2026;
+
+	displayinfo(workers, size, "Всі працівники");
+
+	int expSize = 0;
+	Worker* expArr = getExperience(workers, size, 8, year_v, expSize);
+	displayinfo(expArr, expSize, " Працівники зі стажем більше 8 років ");
+	delete[] expArr;
+
+	int salSize = 0;
+	Worker* salArr = getSalary(workers, size, 20000.0, salSize);
+	displayinfo(salArr, salSize, " Працівники з зарплатою більше 20000 грн ");
+	delete[] salArr;
+
+	int posSize = 0;
+	Worker* posArr = getPos(workers, size, "ppppppp", posSize);
+	displayinfo(posArr, posSize, " Працівники на посаді ppppppp ");
+	delete[] posArr;
+	
+	
+
+
 
 	// 21.09.2026 Lesson 4
 
