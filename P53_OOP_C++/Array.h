@@ -31,6 +31,19 @@ public:
 	int getSize();
 	void reverse();
 	void fill(int value);
+
+	int& operator[](int index);
+
+	Array& operator+=(int value);
+	Array operator+(int value) const;
+
+	bool operator==(const Array& obj) const;
+	bool operator!=(const Array& obj) const;
+
+	friend ostream& operator<<(ostream& os, const Array& obj);
+	friend istream& operator>>(istream& is, Array& obj);
+
+
 };
 
 
@@ -212,4 +225,72 @@ void Array::reverse()
 		arr[i] = arr[size - 1 - i];
 		arr[size - 1 - i] = temp;
 	}
+}
+
+int& Array::operator[](int index)
+{
+	return arr[index];
+}
+
+Array& Array::operator+=(int value)
+{
+	this->add(value);
+	return *this;
+
+}
+
+Array Array::operator+(int value) const
+{
+	Array temp(*this);
+	temp.add(value);
+	return temp;
+}
+
+
+
+bool Array::operator==(const Array& obj) const
+{
+	if (this->size != obj.size)
+	{
+		return false;
+	}
+	for (size_t i = 0; i < size; i++)
+	{
+		if (this->arr[i] != obj.arr[i])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+
+bool Array::operator!=(const Array& obj) const
+{
+	if (*this != obj)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+ostream& operator<<(ostream& os, const Array& obj)
+{
+	for (size_t i = 0; i < obj.size; i++)
+	{
+		os << obj.arr[i] << " ";
+	}
+	return os;
+}
+
+istream& operator>>(istream& is, Array& obj)
+{
+	for (size_t i = 0; i < obj.size; i++)
+	{
+		is >> obj.arr[i];
+	}
+	return is;
 }
