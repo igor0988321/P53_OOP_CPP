@@ -1,9 +1,13 @@
 #pragma once
 
 #include <iostream>
+#include<cassert>
+
 
 using namespace std;
 
+
+template<class T>
 class Array
 {
 	int* arr;
@@ -22,17 +26,17 @@ public:
 	void setRandom();
 
 	void show();
-	void add(int value);
+	void add(const T& value);
 	void remove(int index);
 	void sort();
-	void insert(int index, int value);
+	void insert(int index, const T& value);
 	void clear();
 	void resize(int newSize);
 	int getSize();
 	void reverse();
-	void fill(int value);
+	void fill(const T& value);
 
-	int& operator[](int index);
+	T& operator[](int index);
 
 	Array& operator+=(int value);
 	Array operator+(int value) const;
@@ -48,23 +52,25 @@ public:
 
 
 
-
-Array::Array() : arr(nullptr) ,size(0)
+template<class T>
+Array<T>::Array() : arr(nullptr) ,size(0)
 {
 
 }
 
-Array::Array(int s)
+template<class T>
+Array<T>::Array(int s)
 {
 	size = s;
 	arr = new int[size] {0};
 }
 
-Array::Array(const Array& obj)
+template<class T>
+Array<T>::Array(const Array& obj)
 {
 
 	size = obj.size;
-	arr = new int[size];
+	arr = new T[size];
 	for (size_t i = 0; i < size; i++)
 	{
 		arr[i] = obj.arr[i];
@@ -72,7 +78,8 @@ Array::Array(const Array& obj)
 	cout << "CopyConstr " << arr << endl;
 }
 
-Array& Array::operator=(const Array& obj)
+template<class T>
+Array<T>& Array<T>::operator=(const Array& obj)
 {
 	if (this == &obj)
 	{
@@ -82,7 +89,7 @@ Array& Array::operator=(const Array& obj)
 	delete[] arr;
 
 	size = obj.size;
-	arr = new int[size];
+	arr = new T[size];
 	for (size_t i = 0; i < size; i++)
 	{
 		arr[i] = obj.arr[i];
@@ -91,12 +98,14 @@ Array& Array::operator=(const Array& obj)
 	return *this;
 }
 
-Array::~Array()
+template<class T>
+Array<T>::~Array()
 {
 	delete[] arr;
 }
 
-void Array::setRandom()
+template<class T>
+void Array<T>::setRandom()
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -104,7 +113,8 @@ void Array::setRandom()
 	}
 }
 
-void Array::show()
+template<class T>
+void Array<T>::show()
 {
 	if (size == 0)
 	{
@@ -118,9 +128,10 @@ void Array::show()
 	cout << endl;
 }
 
-void Array::add(int value)
+template<class T>
+void Array<T>::add(const T& value)
 {
-	int* newArr = new int[size + 1];
+	T* newArr = new T[size + 1];
 	for (size_t i = 0; i < size; i++)
 	{
 		newArr[i] = arr[i];
@@ -132,13 +143,14 @@ void Array::add(int value)
 	size++;
 }
 
-void Array::remove(int index)
+template<class T>
+void Array<T>::remove(int index)
 {
 	if (index < 0 || index >= size)
 	{
 		return;
 	}
-	int* newArr = new int[size - 1];
+	T* newArr = new T[size - 1];
 	for (size_t i = 0, j = 0; i < size; i++)
 	{
 		if (i == index)
@@ -152,7 +164,8 @@ void Array::remove(int index)
 	size--;
 }
 
-void Array::sort()
+template<class T>
+void Array<T>::sort()
 {
 	for (size_t i = 0; i < size - 1; i++)
 	{
@@ -160,7 +173,7 @@ void Array::sort()
 		{
 			if (arr[i] > arr[j + 1])
 			{
-				int temp = arr[j];
+				T temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
 			}
@@ -169,14 +182,15 @@ void Array::sort()
 }
 
 
-void Array::insert(int index, int value)
+template<class T>
+void Array<T>::insert(int index, const T& value)
 {
 	if (index < 0 || index > size)
 	{
 		return;
 	}
 
-	int* newArr = new int[size + 1];
+	T* newArr = new T[size + 1];
 	for (size_t i = 0, j = 0; i < size + 1; i++)
 	{
 		if (i == index)
@@ -193,19 +207,22 @@ void Array::insert(int index, int value)
 	size++;
 }
 
-void Array::clear()
+template<class T>
+void Array<T>::clear()
 {
 	delete[] arr;
 	arr = nullptr;
 	size = 0;
 }
 
-int Array::getSize()
+template<class T>
+int Array<T>::getSize()
 {
 	return size;
 }
 
-void Array::fill(int value)
+template<class T>
+void Array<T>::fill(const T& value)
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -213,7 +230,8 @@ void Array::fill(int value)
 	}
 }
 
-void Array::reverse()
+template<class T>
+void Array<T>::reverse()
 {
 	if (size <= 1)
 	{
@@ -221,25 +239,28 @@ void Array::reverse()
 	}
 	for (size_t i = 0; i < size / 2; i++)
 	{
-		int temp = arr[i];
+		T temp = arr[i];
 		arr[i] = arr[size - 1 - i];
 		arr[size - 1 - i] = temp;
 	}
 }
 
-int& Array::operator[](int index)
+template<class T>
+T& Array<T>::operator[](int index)
 {
 	return arr[index];
 }
 
-Array& Array::operator+=(int value)
+template<class T>
+Array<T>& Array<T>::operator+=(int value)
 {
 	this->add(value);
 	return *this;
 
 }
 
-Array Array::operator+(int value) const
+template<class T>
+Array<T> Array<T>::operator+(int value) const
 {
 	Array temp(*this);
 	temp.add(value);
@@ -248,7 +269,8 @@ Array Array::operator+(int value) const
 
 
 
-bool Array::operator==(const Array& obj) const
+template<class T>
+bool Array<T>::operator==(const Array<T>& obj) const
 {
 	if (this->size != obj.size)
 	{
@@ -265,7 +287,8 @@ bool Array::operator==(const Array& obj) const
 }
 
 
-bool Array::operator!=(const Array& obj) const
+template<class T>
+bool Array<T>::operator!=(const Array<T>& obj) const
 {
 	if (*this != obj)
 	{
@@ -277,7 +300,8 @@ bool Array::operator!=(const Array& obj) const
 	}
 }
 
-ostream& operator<<(ostream& os, const Array& obj)
+template<class T>
+ostream& operator<<(ostream& os, const Array<T>& obj)
 {
 	for (size_t i = 0; i < obj.size; i++)
 	{
@@ -286,7 +310,8 @@ ostream& operator<<(ostream& os, const Array& obj)
 	return os;
 }
 
-istream& operator>>(istream& is, Array& obj)
+template<class T>
+istream& operator>>(istream& is, Array<T>& obj)
 {
 	for (size_t i = 0; i < obj.size; i++)
 	{

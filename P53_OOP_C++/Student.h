@@ -9,7 +9,7 @@ class Student
 {
 	char* name = nullptr;
 	int	   age = 0;
-	Array marks;
+	Array<int> marks;
 
 	const int id;
 

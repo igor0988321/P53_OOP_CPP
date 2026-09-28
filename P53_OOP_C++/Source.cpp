@@ -21,7 +21,8 @@ using namespace std;
 //	a.show();
 //}
 
-void printArray(Array a)
+template<class T>
+void printArray(Array<T> a)
 {
 	a.show();
 }
@@ -31,79 +32,97 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 28.09.2026 Lesson 6
+
+	Array<int> arr(10);
+	arr.setRandom();
+	arr.show();
+	cout << arr[-2] << endl;
+
+	Array<Fraction> f(10);
+	f.setRandom();
+	f.show();
+
+	//Array<Student> s(5);
+	//s.setRand();
+
+
+	//void* p = new int{ 10 };
+	//cout << *((int*)p) << endl;
+
 	// 26.09.2026 Home Work 5
 
 
-	Array arr1(3);
-	arr1.setRandom();
-	cout << "arr1: ";
-	arr1.show();
+	//Array arr1(3);
+	//arr1.setRandom();
+	//cout << "arr1: ";
+	//arr1.show();
 
-	
-	Array arr2 = arr1 + 99; 
-	cout << "arr2 (arr1 + 99): ";
-	arr2.show();
+	//
+	//Array arr2 = arr1 + 99; 
+	//cout << "arr2 (arr1 + 99): ";
+	//arr2.show();
 
-	arr1 += 55; 
-	cout << "arr1 += 55: ";
-	arr1.show();
+	//arr1 += 55; 
+	//cout << "arr1 += 55: ";
+	//arr1.show();
 
-	
-	Array arr3(3);
-	arr3.fill(10);
-	Array arr4(3);
-	arr4.fill(10);
+	//
+	//Array arr3(3);
+	//arr3.fill(10);
+	//Array arr4(3);
+	//arr4.fill(10);
 
-	if (arr3 == arr4) {
-		cout << "(== спрацювало)" << endl;
-	}
-	else {
-		cout << "НЕ рівні" << endl;
-	}
+	//if (arr3 == arr4) {
+	//	cout << "(== спрацювало)" << endl;
+	//}
+	//else {
+	//	cout << "НЕ рівні" << endl;
+	//}
 
-	if (arr1 != arr2) {
-		cout << "(!= спрацювало)" << endl;
-	}
-
-
-	cout << "Виведення " << arr3 << endl;
+	//if (arr1 != arr2) {
+	//	cout << "(!= спрацювало)" << endl;
+	//}
 
 
-
-	String s1("Привіт");
-	String s2(" Світ");
-
-	
-	String s3 = s1 + s2; 
-	cout << "s3 (s1 + s2): " << s3 << endl;
-
-	s1 += String(" Привіт");
-	cout << "s1  +=: " << s1 << endl;
+	//cout << "Виведення " << arr3 << endl;
 
 
-	String s4;
-	s4 = s3;
-	cout << "s4 після s4 = s3: " << s4 << endl;
 
-	cout << "Перша буква : " << s3[0] << endl;
-	s3[0] = 'p'; 
-	cout << "зміни першої букви: " << s3 << endl;
+	//String s1("Привіт");
+	//String s2(" Світ");
 
-	
-	
-	String alpha1("Apple");
-	String alpha2("Banana");
+	//
+	//String s3 = s1 + s2; 
+	//cout << "s3 (s1 + s2): " << s3 << endl;
 
-	if (alpha1 == alpha2) {
-		cout << "Рівні" << endl;
-	}
-	else {
-		cout << "не рівні" << endl;
-	}
+	//s1 += String(" Привіт");
+	//cout << "s1  +=: " << s1 << endl;
 
-	if (alpha1 < alpha2) {
-		cout << "(< спрацювало)" << endl;
-	}
+
+	//String s4;
+	//s4 = s3;
+	//cout << "s4 після s4 = s3: " << s4 << endl;
+
+	//cout << "Перша буква : " << s3[0] << endl;
+	//s3[0] = 'p'; 
+	//cout << "зміни першої букви: " << s3 << endl;
+
+	//
+	//
+	//String alpha1("Apple");
+	//String alpha2("Banana");
+
+	//if (alpha1 == alpha2) {
+	//	cout << "Рівні" << endl;
+	//}
+	//else {
+	//	cout << "не рівні" << endl;
+	//}
+
+	//if (alpha1 < alpha2) {
+	//	cout << "(< спрацювало)" << endl;
+	//}
 
 
 	
