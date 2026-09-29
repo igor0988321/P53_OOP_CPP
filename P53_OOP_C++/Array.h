@@ -162,14 +162,14 @@ Array<T>::~Array()
 	delete[] arr;
 }
 
-template<class T>
-void Array<T>::setRandom()
-{
-	for (size_t i = 0; i < size; i++)
-	{
-		arr[i] = (T)(rand() % 100);
-	}
-}
+//template<class T>
+//void Array<T>::setRandom()
+//{
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		arr[i] = (T)(rand() % 100);
+//	}
+//}
 
 template<class T>
 void Array<T>::show()
@@ -186,20 +186,6 @@ void Array<T>::show()
 	cout << endl;
 }
 
-template<class T>
-void Array<T>::add(const T& value)
-{
-	T* newArr = new T[size + 1];
-	for (size_t i = 0; i < size; i++)
-	{
-		newArr[i] = arr[i];
-	}
-	newArr[size] = value;
-
-	delete[] arr;
-	arr = newArr;
-	size++;
-}
 
 template<class T>
 void Array<T>::remove(int index)
@@ -504,7 +490,7 @@ void Array<T>::add(const T& value)
 	{
 		int newcapacity;
 
-		if (newcapacity == 0)
+		if (capacity == 0)
 		{
 			newcapacity = grow;
 		}
@@ -525,7 +511,7 @@ void Array<T>::add(const T& value)
 		capacity = newcapacity;
 	}
 	arr[size] = value;
-	size++:
+	size++;
 }
 
 
@@ -550,7 +536,7 @@ void Array<T>::InsertAt(int index, const T& value)
 
 	add(T());
 
-	for (size_t i = size - 1; i > index; i++)
+	for (size_t i = size - 1; i > index; i--)
 	{
 		arr[i] = arr[i - 1];
 	}

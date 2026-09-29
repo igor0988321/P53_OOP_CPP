@@ -32,16 +32,62 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 29.09.2026 Home Work 6
+
+	Array<int> a;
+
+	a.SetSize(5, 5);
+
+	a.add(10);
+	a.add(20);
+	a.add(30);
+	a.add(40);
+	a.add(50);
+	a.add(60);
+
+	cout << "Size: " << a.GetSize() << endl;
+	cout << "UpperBound: " << a.GetUpperBound() << endl;
+
+	a.show();
+
+	//a.InsertAt(2, 999);
+
+	//a.show();
+
+	//a.RemoveAt(1);
+
+	//a.show();
+
+	//cout << "Element: " << a.GetAt(2) << endl;
+
+	//a.SetAt(2, 555);
+
+	//a.show();
+
+	//Array<int> b;
+
+	//b.add(100);
+	//b.add(200);
+
+	//a.Append(b);
+
+	//a.show();
+
+	//a.RemoveAll();
+
+	//cout << "IsEmpty: " << a.isEmpty() << endl;
+
+
 	// 28.09.2026 Lesson 6
 
-	Array<int> arr(10);
-	arr.setRandom();
-	arr.show();
-	cout << arr[-2] << endl;
+	//Array<int> arr(10);
+	//arr.setRandom();
+	//arr.show();
+	//cout << arr[-2] << endl;
 
-	Array<Fraction> f(10);
-	f.setRandom();
-	f.show();
+	//Array<Fraction> f(10);
+	//f.setRandom();
+	//f.show();
 
 	//Array<Student> s(5);
 	//s.setRand();
