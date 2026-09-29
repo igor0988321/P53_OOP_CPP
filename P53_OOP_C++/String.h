@@ -132,6 +132,9 @@ public:
 	}
 
 	friend ostream& operator<<(ostream& os, const String& obj);
+
+	int GetSize() const { return size; }
+	const char* GetCStr() const { return str; }
 		
 };
 
