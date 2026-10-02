@@ -12,6 +12,8 @@
 #include"Worker.h"
 #include"Fraction.h"
 
+#include"Stack.h"
+#include"Calc.h"
 
 using namespace std;
 
@@ -32,23 +34,46 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+
+	// 02.10.2026 Lesson 7
+
+
+	//Stack<int, 5> s;
+	//s.push(10);
+	//s.push(5);
+	//s.push(20);
+	//s.push(15);
+	//s.push(25);
+	//s.push(35);
+	//s.print();
+	//cout << s.peek() << endl;
+	//s.pop();
+	//s.pop();
+	//s.print();
+	//s.clear();
+	//s.print();
+
+	//Calc c("4/2");
+	//cout << c.getResult() << endl;
+
+
 	// 29.09.2026 Home Work 6
 
-	Array<int> a;
+	//Array<int> a;
 
-	a.SetSize(5, 5);
+	//a.SetSize(5, 5);
 
-	a.add(10);
-	a.add(20);
-	a.add(30);
-	a.add(40);
-	a.add(50);
-	a.add(60);
+	//a.add(10);
+	//a.add(20);
+	//a.add(30);
+	//a.add(40);
+	//a.add(50);
+	//a.add(60);
 
-	cout << "Size: " << a.GetSize() << endl;
-	cout << "UpperBound: " << a.GetUpperBound() << endl;
+	//cout << "Size: " << a.GetSize() << endl;
+	//cout << "UpperBound: " << a.GetUpperBound() << endl;
 
-	a.show();
+	//a.show();
 
 	//a.InsertAt(2, 999);
 
