@@ -14,6 +14,7 @@
 
 #include"Stack.h"
 #include"Calc.h"
+#include"Stack2.h"
 
 using namespace std;
 
@@ -33,6 +34,19 @@ void printArray(Array<T> a)
 int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
+
+
+	// 03.10.2026 Home Work 7
+
+	//cout << "aaa";
+
+	string str;
+
+	cout << "Ведіть рядок ";
+
+	cin >> str;
+
+	res(str);
 
 
 	// 02.10.2026 Lesson 7
@@ -375,6 +389,6 @@ int main(){
 
 
 
-
+	std::cin.get();
 	return 0;
 }
