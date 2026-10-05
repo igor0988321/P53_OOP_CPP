@@ -15,6 +15,9 @@
 #include"Stack.h"
 #include"Calc.h"
 #include"Stack2.h"
+#include"Queue.h"
+#include"PriorityQueue.h"
+#include"Bus.h"
 
 using namespace std;
 
@@ -36,17 +39,68 @@ int main(){
 	SetConsoleCP(65001);
 
 
+	// 05.10.2026 Lesson 8
+
+
+	//Queue<int> q = { 1, 2, 3 };
+	//q.enqueue(10);
+	//q.ring();
+	//q.print();
+	//cout << q.peek() << endl;
+	//q.clear();
+	//q.print();
+
+	//PriorityQueue<int> pq;
+	//pq.enqueue(10, 1);
+	//pq.enqueue(20, 2);
+	//pq.enqueue(10, 1);
+	//pq.enqueue(30, 3);
+	//pq.enqueue(20, 2);
+	//pq.print();
+
+	//PriorityQueue<Fraction, float> p;
+	//p.enqueue(Fraction(2, 3), (float)Fraction(2, 3));
+	//p.enqueue(Fraction(1, 3), (float)Fraction(1, 3));
+	//p.enqueue(Fraction(3, 3), (float)Fraction(3, 3));
+	//p.enqueue(Fraction(5, 3), (float)Fraction(5, 3));
+	//p.enqueue(Fraction(1, 3), (float)Fraction(1, 3));
+	//p.print();
+
+
+	Queue<Bus> bus = {};
+	Queue<People> p;
+
+	int i = 0;
+	while (true)
+	{
+		if (i % 2 == 0)
+		{
+			cout << "Add pass" << endl;
+			p.enqueue(People());
+		}
+
+		if (i % 10 == 0)
+		{
+			cout << "Bus arrived" << endl;
+
+		}
+		Sleep(1000);
+		i++;
+	}
+
+
+
 	// 03.10.2026 Home Work 7
 
 	//cout << "aaa";
 
-	string str;
+	//string str;
 
-	cout << "Ведіть рядок ";
+	//cout << "Ведіть рядок ";
 
-	cin >> str;
+	//cin >> str;
 
-	res(str);
+	//res(str);
 
 
 	// 02.10.2026 Lesson 7
