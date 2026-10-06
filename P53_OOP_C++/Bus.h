@@ -4,13 +4,13 @@ using namespace std;
 
 class People
 {
-	int time;
+	int arrivedtime;
 
 public:
-
-	void addTime()
+	People(int temp) : arrivedtime(temp) {}
+	int gettime(int temp) const
 	{
-		time++;
+		return temp - arrivedtime;
 	}
 };
 
@@ -18,9 +18,31 @@ public:
 
 class Bus
 {
-	string number;
-	int freePassenger;
+	int freeSeats;
 
 public:
+	Bus(int maxCapacity = 15)
+	{
+		freeSeats = rand() % (maxCapacity + 1);
+	}
 
+	int getFreeSeats() const
+	{
+		return freeSeats;
+	}
 };
+
+
+int randominterval(double mInterval)
+{
+	double u = (rand() + 1.0) / (RAND_MAX + 2.0);
+	double interval = -mInterval * log(u);
+	return max(1, (int)round(interval));
+
+}
+
+
+double roundDecimal(double val)
+{
+	return round(val * 10.0) / 10.0;
+}

@@ -31,7 +31,12 @@ public:
 };
 
 template<class T>
-Queue<T>::Queue() {}
+Queue<T>::Queue() 
+{
+	first = nullptr;
+	last = nullptr;
+	size = 0;
+}
 
 template<class T>
 Queue<T>::Queue(initializer_list<T> list)
@@ -45,7 +50,17 @@ Queue<T>::Queue(initializer_list<T> list)
 template<class T>
 Queue<T>::Queue(const Queue& obj)
 {
+	first = nullptr;
+	last = nullptr;
+	size = 0;
 
+	
+	Node<T>* temp = obj.first;
+	while (temp != nullptr)
+	{
+		enqueue(temp->value); 
+		temp = temp->next;
+	}
 }
 
 template<class T>

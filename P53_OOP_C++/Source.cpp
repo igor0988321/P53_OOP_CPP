@@ -2,6 +2,8 @@
 #include<iostream>
 
 #include <windows.h>
+#include <thread> 
+#include <chrono>
 
 #include"Student.h"
 #include"Array.h"
@@ -39,6 +41,90 @@ int main(){
 	SetConsoleCP(65001);
 
 
+	// 06.10.2026 Home Work 8
+
+	srand(time(0));
+
+	double mInterval;
+	double busInterval;
+	int maxQueue;
+
+
+	cout << "Модель зупинки" << endl;
+	cout << "Ведіть середній інтервал появи пасажирів" << endl;
+	cin >> mInterval;
+	cout << "Ведіть середній інтервал приїзду маршутки" << endl;
+	cin >> busInterval;
+	cout << "Ведіть максимальну кількість людей" << endl;
+	cin >> maxQueue;
+
+	Queue<People> queue;
+
+	int nextPasan = randominterval(mInterval);
+	int nextBus = randominterval(busInterval);
+
+	long long totalwaitTime = 0;
+	int totalPasan = 0;
+	int Tick = 0;
+
+	while (true)
+	{
+		Tick++;
+		cout << "[" << Tick << " сек] ";
+		if (Tick >= nextPasan)
+		{
+			queue.enqueue(People(Tick));
+			cout << "+1 пасажир ";
+			nextPasan = Tick + randominterval(mInterval);
+		}
+
+		int Queuesize = queue.getSize();
+
+		if (Queuesize > maxQueue)
+		{
+			if (busInterval > 2.0)
+			{
+				busInterval *= 0.8;
+				cout << "Людей забагато! Інтервал маршуток зменшено до " << roundDecimal(busInterval) << " сек ";
+			}
+		}
+		else if (Queuesize <= 2 && busInterval < 60.0)
+		{
+			busInterval *= 1.1;
+		}
+
+		if (Tick >= nextBus)
+		{
+			Bus bus(15);
+			int freeSeats = bus.getFreeSeats();
+
+			cout << "Маршутка прибула! Вільних місць: " << freeSeats << endl;
+
+			int boarded = 0;
+			while (queue.getSize() > 0 && freeSeats > 0)
+			{
+				People p = queue.peek();
+				queue.dequeue();
+
+				int waitTime = p.gettime(Tick);
+				totalwaitTime += waitTime;
+				totalPasan++;
+				freeSeats--;
+				boarded++;
+
+				cout << " -> Пасажир сів у маршутку. Простояв: " << waitTime << "сек" << endl;
+			}
+
+			cout << "Забрали з зупинки: " << boarded << "чол" << endl;
+
+			nextBus = Tick + randominterval(busInterval);
+		}
+		cout << "Людей на зупинці: " << queue.getSize()
+			<< " | Поточний інтервал маршуток: " << roundDecimal(busInterval) << " сек" << endl;
+
+		this_thread::sleep_for(chrono::seconds(1));
+	}
+
 	// 05.10.2026 Lesson 8
 
 
@@ -67,27 +153,7 @@ int main(){
 	//p.print();
 
 
-	Queue<Bus> bus = {};
-	Queue<People> p;
-
-	int i = 0;
-	while (true)
-	{
-		if (i % 2 == 0)
-		{
-			cout << "Add pass" << endl;
-			p.enqueue(People());
-		}
-
-		if (i % 10 == 0)
-		{
-			cout << "Bus arrived" << endl;
-
-		}
-		Sleep(1000);
-		i++;
-	}
-
+	//
 
 
 	// 03.10.2026 Home Work 7
