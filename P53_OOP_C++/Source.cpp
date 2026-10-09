@@ -20,6 +20,7 @@
 #include"Queue.h"
 #include"PriorityQueue.h"
 #include"Bus.h"
+#include"ForwardList.h"
 
 using namespace std;
 
@@ -36,94 +37,109 @@ void printArray(Array<T> a)
 }
 
 
+//void addTimePeople(People& p)
+//{
+//	p.addTime();
+//}
+
 int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 09.10.2026 Lesson 9
+
+	ForwardList<int> l = { 1,21,3 };
+	cout << l[1] << endl;
+
+	ForwardList<int> l2 = l;
+	l2.print();
+
+	ForwardList<int> l3 = l + l2;
+	l3.print();
 
 	// 06.10.2026 Home Work 8
 
-	srand(time(0));
+	//srand(time(0));
 
-	double mInterval;
-	double busInterval;
-	int maxQueue;
+	//double mInterval;
+	//double busInterval;
+	//int maxQueue;
 
 
-	cout << "Модель зупинки" << endl;
-	cout << "Ведіть середній інтервал появи пасажирів" << endl;
-	cin >> mInterval;
-	cout << "Ведіть середній інтервал приїзду маршутки" << endl;
-	cin >> busInterval;
-	cout << "Ведіть максимальну кількість людей" << endl;
-	cin >> maxQueue;
+	//cout << "Модель зупинки" << endl;
+	//cout << "Ведіть середній інтервал появи пасажирів" << endl;
+	//cin >> mInterval;
+	//cout << "Ведіть середній інтервал приїзду маршутки" << endl;
+	//cin >> busInterval;
+	//cout << "Ведіть максимальну кількість людей" << endl;
+	//cin >> maxQueue;
 
-	Queue<People> queue;
+	//Queue<People> queue;
 
-	int nextPasan = randominterval(mInterval);
-	int nextBus = randominterval(busInterval);
+	//int nextPasan = randominterval(mInterval);
+	//int nextBus = randominterval(busInterval);
 
-	long long totalwaitTime = 0;
-	int totalPasan = 0;
-	int Tick = 0;
+	//long long totalwaitTime = 0;
+	//int totalPasan = 0;
+	//int Tick = 0;
 
-	while (true)
-	{
-		Tick++;
-		cout << "[" << Tick << " сек] ";
-		if (Tick >= nextPasan)
-		{
-			queue.enqueue(People(Tick));
-			cout << "+1 пасажир ";
-			nextPasan = Tick + randominterval(mInterval);
-		}
+	//while (true)
+	//{
+	//	Tick++;
+	//	cout << "[" << Tick << " сек] ";
+	//	if (Tick >= nextPasan)
+	//	{
+	//		queue.enqueue(People(Tick));
+	//		cout << "+1 пасажир ";
+	//		nextPasan = Tick + randominterval(mInterval);
+	//	}
 
-		int Queuesize = queue.getSize();
+	//	int Queuesize = queue.getSize();
 
-		if (Queuesize > maxQueue)
-		{
-			if (busInterval > 2.0)
-			{
-				busInterval *= 0.8;
-				cout << "Людей забагато! Інтервал маршуток зменшено до " << roundDecimal(busInterval) << " сек ";
-			}
-		}
-		else if (Queuesize <= 2 && busInterval < 60.0)
-		{
-			busInterval *= 1.1;
-		}
+	//	if (Queuesize > maxQueue)
+	//	{
+	//		if (busInterval > 2.0)
+	//		{
+	//			busInterval *= 0.8;
+	//			cout << "Людей забагато! Інтервал маршуток зменшено до " << roundDecimal(busInterval) << " сек ";
+	//		}
+	//	}
+	//	else if (Queuesize <= 2 && busInterval < 60.0)
+	//	{
+	//		busInterval *= 1.1;
+	//	}
 
-		if (Tick >= nextBus)
-		{
-			Bus bus(15);
-			int freeSeats = bus.getFreeSeats();
+	//	if (Tick >= nextBus)
+	//	{
+	//		Bus bus(15);
+	//		int freeSeats = bus.getFreeSeats();
 
-			cout << "Маршутка прибула! Вільних місць: " << freeSeats << endl;
+	//		cout << "Маршутка прибула! Вільних місць: " << freeSeats << endl;
 
-			int boarded = 0;
-			while (queue.getSize() > 0 && freeSeats > 0)
-			{
-				People p = queue.peek();
-				queue.dequeue();
+	//		int boarded = 0;
+	//		while (queue.getSize() > 0 && freeSeats > 0)
+	//		{
+	//			People p = queue.peek();
+	//			queue.dequeue();
 
-				int waitTime = p.gettime(Tick);
-				totalwaitTime += waitTime;
-				totalPasan++;
-				freeSeats--;
-				boarded++;
+	//			int waitTime = p.gettime(Tick);
+	//			totalwaitTime += waitTime;
+	//			totalPasan++;
+	//			freeSeats--;
+	//			boarded++;
 
-				cout << " -> Пасажир сів у маршутку. Простояв: " << waitTime << "сек" << endl;
-			}
+	//			cout << " -> Пасажир сів у маршутку. Простояв: " << waitTime << "сек" << endl;
+	//		}
 
-			cout << "Забрали з зупинки: " << boarded << "чол" << endl;
+	//		cout << "Забрали з зупинки: " << boarded << "чол" << endl;
 
-			nextBus = Tick + randominterval(busInterval);
-		}
-		cout << "Людей на зупинці: " << queue.getSize()
-			<< " | Поточний інтервал маршуток: " << roundDecimal(busInterval) << " сек" << endl;
+	//		nextBus = Tick + randominterval(busInterval);
+	//	}
+	//	cout << "Людей на зупинці: " << queue.getSize()
+	//		<< " | Поточний інтервал маршуток: " << roundDecimal(busInterval) << " сек" << endl;
 
-		this_thread::sleep_for(chrono::seconds(1));
-	}
+	//	this_thread::sleep_for(chrono::seconds(1));
+	//}
 
 	// 05.10.2026 Lesson 8
 
