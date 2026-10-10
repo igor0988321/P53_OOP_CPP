@@ -87,6 +87,13 @@ ForwardList<T>::ForwardList(const ForwardList& obj)
 template<class T>
 ForwardList<T>& ForwardList<T>::operator=(const ForwardList<T>& obj)
 {
+	clear();
+	Node<T>* temp = obj.first;
+	for (size_t i = 0; i < obj.size; i++)
+	{
+		push_back(temp->value);
+		temp = temp->next;
+	}
 	return *this;
 }
 
@@ -244,12 +251,25 @@ ForwardList<T> ForwardList<T>::operator+(const ForwardList<T>& list) const
 template<class T>
 void ForwardList<T>::operator+=(const ForwardList<T>& list)
 {
+	Node<T>* temp = list.first;
+	for (size_t i = 0; i < list.size; i++)
+	{
+		push_back(temp->value);
+		temp = temp->next;
+	}
 }
 
 template<class T>
 void ForwardList<T>::clear()
 {
-
+	Node<T>* temp;
+	while (first != nullptr)
+	{
+		temp = first;
+		first = first->next;
+		delete temp;
+	}
+	size = 0;
 }
 
 template<class T>
@@ -267,17 +287,36 @@ void ForwardList<T>::print() const
 template<class T>
 size_t ForwardList<T>::getSize() const
 {
-	return size_t();
+	return size;
 }
 
 template<class T>
 size_t ForwardList<T>::firstIndex(const T& value)
 {
-	return size_t();
+	Node<T>* temp = first;
+	for (size_t i = 0; i < size; i++)
+	{
+		if (temp->value == value)
+		{
+			return i;
+		}
+		temp = temp->next;
+	}
+	return size;
 }
 
 template<class T>
 size_t ForwardList<T>::lastIndex(const T& value)
 {
-	return size_t();
+	Node<T>* temp = first;
+	size_t index = size;
+	for (size_t i = 0; i < size; i++)
+	{
+		if (temp->value == value)
+		{
+			index = i;
+		}
+		temp = temp->next;
+	}
+	return size;
 }
