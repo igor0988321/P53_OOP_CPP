@@ -21,6 +21,7 @@
 #include"PriorityQueue.h"
 #include"Bus.h"
 #include"ForwardList.h"
+#include"List.h"
 
 using namespace std;
 
@@ -46,50 +47,63 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 12.10.2026 Lesson 10
+
+	List<int> l = { 1,2,3,4,5 };
+	//l.push_back(10);
+	//l.push_front(20);
+	//l.print();
+	//l.insert(99, 0);
+	l.print();
+
+	l.remove(1);
+	l.print();
+
+
 	// 10.10.2026 Home Work 9
 
-	ForwardList<int> list = { 10, 20, 30, 20, 50 };
+	//ForwardList<int> list = { 10, 20, 30, 20, 50 };
 
-	cout << "Початковий список: ";
-	list.print();
+	//cout << "Початковий список: ";
+	//list.print();
 
-	
-	list.push_front(5);
-	cout << "Після push_front(5): ";
-	list.print();
+	//
+	//list.push_front(5);
+	//cout << "Після push_front(5): ";
+	//list.print();
 
-	
-	list.push_back(60);
-	cout << "Після push_back(60): ";
-	list.print();
+	//
+	//list.push_back(60);
+	//cout << "Після push_back(60): ";
+	//list.print();
 
-	
-	list.insert(15, 2);
-	cout << "Після insert(15, 2): ";
-	list.print();
+	//
+	//list.insert(15, 2);
+	//cout << "Після insert(15, 2): ";
+	//list.print();
 
-	
-	cout << "Перший елемент: " << list.front() << endl;
-	cout << "Останній елемент: " << list.back() << endl;
+	//
+	//cout << "Перший елемент: " << list.front() << endl;
+	//cout << "Останній елемент: " << list.back() << endl;
 
-	
-	cout << "Елемент з індексом 2 через at(): "
-		<< list.at(2) << endl;
+	//
+	//cout << "Елемент з індексом 2 через at(): "
+	//	<< list.at(2) << endl;
 
-	cout << "Елемент з індексом 3 через []: "
-		<< list[3] << endl;
+	//cout << "Елемент з індексом 3 через []: "
+	//	<< list[3] << endl;
 
-	
-	cout << "Кількість елементів: "
-		<< list.getSize() << endl;
+	//
+	//cout << "Кількість елементів: "
+	//	<< list.getSize() << endl;
 
-	
-	cout << "Перший індекс числа 20: "
-		<< list.firstIndex(20) << endl;
+	//
+	//cout << "Перший індекс числа 20: "
+	//	<< list.firstIndex(20) << endl;
 
-	
-	cout << "Останній індекс числа 20: "
-		<< list.lastIndex(20) << endl;
+	//
+	//cout << "Останній індекс числа 20: "
+	//	<< list.lastIndex(20) << endl;
 
 	// 09.10.2026 Lesson 9
 
