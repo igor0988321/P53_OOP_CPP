@@ -58,7 +58,7 @@ int main(){
 
 	l.remove(1);
 	l.print();
-
+ 
 
 	// 10.10.2026 Home Work 9
 

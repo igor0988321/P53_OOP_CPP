@@ -42,8 +42,8 @@ public:
 	void print() const;
 	void clear();
 
-	size_t firstIndex(const T& value);
-	size_t lastIndex(const T& value);
+	int firstIndex(const T& value);
+	int lastIndex(const T& value);
 
 	List splice(size_t index1, size_t index2);
 
@@ -89,12 +89,27 @@ List<T>::List(initializer_list<T> list)
 template<class T>
 List<T>::List(const List& obj)
 {
-
+	Node<T>* temp = obj.first;
+	while (temp)
+	{
+		push_back(temp->value);
+		temp = temp->next;
+	}
 }
 
 template<class T>
 List<T>& List<T>::operator=(const List& obj)
 {
+	if (this != &obj)
+	{
+		clear();
+		Node<T>* temp = obj.first;
+		while (temp)
+		{
+			push_back(temp->value);
+			temp = temp->next;
+		}
+	}
 	return *this;
 }
 
@@ -218,6 +233,103 @@ void List<T>::remove(size_t index)
 }
 
 template<class T>
+void List<T>::erase(const T& value)
+{
+	Node<T>* temp = first;
+	while (temp)
+	{
+		if (temp->value == value)
+		{
+			Node<T>* delet = temp;
+			temp = temp->next;
+			if (delet == first)
+			{
+				pop_front();
+			}
+			else if (delet == last)
+			{
+				pop_back();
+			}
+			else
+			{
+				delet->prev->next = delet->next;
+				delet->next->prev = delet->prev;
+				delete delet;
+				size--;
+			}
+		}
+		else
+		{
+			temp = temp->next;
+		}
+	}
+}
+
+template<class T>
+ void List<T>::erase_if(bool(*predicate)(const T&))
+{
+	 Node<T>* temp = first;
+	 while (temp)
+	 {
+		 if (predicate(temp->value == value))
+		 {
+			 Node<T>* delet = temp;
+			 temp = temp->next;
+			 if (delet == first)
+			 {
+				 pop_front();
+			 }
+			 else if (delet == last)
+			 {
+				 pop_back();
+			 }
+			 else
+			 {
+				 delet->prev->next = delet->next;
+				 delet->next->prev = delet->prev;
+				 delete delet;
+				 size--;
+			 }
+		 }
+		 else
+		 {
+			 temp = temp->next;
+		 }
+	 }
+}
+
+ template<class T>
+ T& List<T>::front() const
+ {
+	 return first->value;
+ }
+
+
+ template<class T>
+ T& List<T>::back() const
+ {
+	 return last->value;
+ }
+
+ template<class T>
+T& List<T>::operator[](size_t index) const
+ {
+	return getNode(index)->value;
+ }
+
+template<class T>
+ T List<T>::at(size_t index) const
+{
+	return getNode(index)->value;
+}
+
+ template<class T>
+size_t List<T>::getSize() const
+ {
+	 return size;
+ }
+
+ template<class T>
 void List<T>::print() const
 {
 	Node<T>* temp = first;
@@ -242,4 +354,52 @@ void List<T>::clear()
 	size = 0;
 	last = nullptr;
 
+}
+
+template<class T>
+int List<T>::firstIndex(const T& value)
+{
+	Node<T>* temp = first;
+	size_t index = 0;
+	while (temp)
+	{
+		if (temp->value == value)
+		{
+			return index;
+		}
+		temp = temp->next;
+		index++;
+	}
+	return -1;
+}
+
+
+template<class T>
+int List<T>::lastIndex(const T& value)
+{
+	Node<T>* temp = first;
+	size_t index = 0;
+	while (temp)
+	{
+		if (temp->value == value)
+		{
+			return size - index - 1;
+		}
+		temp = temp->next;
+		index++;
+	}
+	return -1;
+}
+
+template<class T>
+List<T> List<T>::operator+(const List<T>& list)
+{
+	List<T> newList(*this);
+	Node<T>* temp = list.first;
+	while (temp)
+	{
+		newList.push_back(temp->value);
+		temp = temp->next;
+	}
+	return newList;
 }
