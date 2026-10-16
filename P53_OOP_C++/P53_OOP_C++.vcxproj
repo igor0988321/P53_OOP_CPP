@@ -144,6 +144,8 @@
   <ItemGroup>
     <ClInclude Include="Area.h" />
     <ClInclude Include="Array.h" />
+    <ClInclude Include="BasePolice.h" />
+    <ClInclude Include="BTree.h" />
     <ClInclude Include="Bus.h" />
     <ClInclude Include="Calc.h" />
     <ClInclude Include="ForwardList.h" />
