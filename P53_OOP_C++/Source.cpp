@@ -23,6 +23,7 @@
 #include"ForwardList.h"
 #include"List.h"
 #include"BTree.h"
+#include"BasePolice.h"
 
 using namespace std;
 
@@ -48,20 +49,87 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	//18.10.2026 Home Work 11
+
+	BasePolice policeBase;
+	int choice;
+
+	do
+	{
+		cout << "\n================ МЕНЮ БАЗИ ДАНИХ ДАІ ================\n";
+		cout << "1. Додати новий протокол \n";
+		cout << "2. Друк протоколів за номером авто\n";
+		cout << "3. Повний друк усієї бази даних \n";
+		cout << "4. Друк за діапазоном номерів \n";
+		cout << "5. Оплатити штраф \n";
+		cout << "6. Зберегти базу у файл \n";
+		cout << "7. Завантажити базу з файлу \n";
+		cout << "0. Вихід\n";
+		cout << "=====================================================\n";
+		cout << "Оберіть дію: ";
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:
+			policeBase.addProtocol();
+			break;
+
+		case 2:
+			policeBase.print();
+			break;
+
+		case 3:
+			policeBase.printAll();
+			break;
+
+		case 4:
+		{
+			string n1, n2;
+			cout << "Введіть початковий номер діапазону: ";
+			cin >> n1;
+			cout << "Введіть кінцевий номер діапазону: ";
+			cin >> n2;
+			policeBase.print(n1, n2);
+			break;
+		}
+
+		case 5:
+			policeBase.pay();
+			break;
+
+		case 6:
+			policeBase.save();
+			break;
+
+		case 7:
+			policeBase.load();
+			break;
+
+		case 0:
+			cout << "Завершення роботи програми.\n";
+			break;
+
+		default:
+			cout << "Некоректний вибір! Спробуйте ще раз.\n";
+		}
+
+	} while (choice != 0);
+
 	// 16.10.2026 Lesson 11
 
 
-	BTree<int, int> b;
-	b.push_r(10, 10);
-	b.push_r(5, 5);
-	b.push_r(15, 15);
-	b.push_r(0, 0);
-	b.push_r(1, 1);
-	cout << b.push_r(2, 2) << endl;
-	cout << b.push_r(1, 1) << endl;
-	cout << b.push_r(3, 3) << endl;
-	b.print();
-	b.clear();
+	//BTree<int, int> b;
+	//b.push_r(10, 10);
+	//b.push_r(5, 5);
+	//b.push_r(15, 15);
+	//b.push_r(0, 0);
+	//b.push_r(1, 1);
+	//cout << b.push_r(2, 2) << endl;
+	//cout << b.push_r(1, 1) << endl;
+	//cout << b.push_r(3, 3) << endl;
+	//b.print();
+	//b.clear();
 
 	// 12.10.2026 Lesson 10
 

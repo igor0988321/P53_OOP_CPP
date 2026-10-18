@@ -49,6 +49,9 @@ public:
 
 	List operator+(const List& list);
 
+	template<typename U>
+	friend ostream& operator<<(ostream& out, const List<U>& list);
+
 };
 
 template<class T>
@@ -66,7 +69,7 @@ Node<T>* List<T>::getNode(size_t index) const
 	else
 	{
 		pos = last;
-		for (size_t i = 0; i < size - index - 1; i++)
+		for (size_t i = 0; i < size - 1 - index; i++)
 		{
 			pos = pos->prev;
 		}
@@ -87,7 +90,7 @@ List<T>::List(initializer_list<T> list)
 }
 
 template<class T>
-List<T>::List(const List& obj)
+List<T>::List(const List& obj) : first(nullptr), last(nullptr), size(0)
 {
 	Node<T>* temp = obj.first;
 	while (temp)
@@ -111,6 +114,16 @@ List<T>& List<T>::operator=(const List& obj)
 		}
 	}
 	return *this;
+}
+
+template<typename T>
+ostream& operator<<(ostream& out, const List<T>& list)
+{
+	for (size_t i = 0; i < list.getSize(); i++)
+	{
+		out << list[i] << endl; 
+	}
+	return out;
 }
 
 template<class T>
@@ -139,17 +152,18 @@ void List<T>::push_front(const T& value)
 template<class T>
 void List<T>::push_back(const T& value)
 {
-	if (size == 0)
+	if (size == 0 || last == nullptr) 
 	{
 		first = last = new Node<T>(value);
+		size = 1;
 	}
 	else
 	{
 		last->next = new Node<T>(value);
 		last->next->prev = last;
 		last = last->next;
+		size++;
 	}
-	size++;
 }
 
 template<class T>
@@ -271,7 +285,7 @@ template<class T>
 	 Node<T>* temp = first;
 	 while (temp)
 	 {
-		 if (predicate(temp->value == value))
+		 if (predicate(temp->value))
 		 {
 			 Node<T>* delet = temp;
 			 temp = temp->next;
@@ -402,4 +416,23 @@ List<T> List<T>::operator+(const List<T>& list)
 		temp = temp->next;
 	}
 	return newList;
+}
+
+
+template<class T>
+List<T> List<T>::splice(size_t index1, size_t index2)
+{
+	List<T> sublist;
+	if (index1 > index2 || index1 >= size) return sublist;
+
+	Node<T>* temp = getNode(index1);
+	size_t currentIndex = index1;
+
+	while (temp && currentIndex <= index2 && currentIndex < size)
+	{
+		sublist.push_back(temp->value);
+		temp = temp->next;
+		currentIndex++;
+	}
+	return sublist;
 }
