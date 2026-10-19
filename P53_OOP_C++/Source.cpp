@@ -24,6 +24,8 @@
 #include"List.h"
 #include"BTree.h"
 #include"BasePolice.h"
+#include"Composition.h"
+#include"Inherit.h"
 
 using namespace std;
 
@@ -49,72 +51,117 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	//==========================================
+	//19.10.2026 Lesson 12 Композиція // Наслідування
+
+
+	//A a;
+	//a.aaa = 10;
+	//a.aa = 10;
+
+	//B b;
+	//b.aaa = 10;
+
+	//C c;
+	//c.aaa = 10;
+
+
+
+
+
+	//Engine* en = new Engine;
+	//{
+	//	Car c(en);
+
+	//	STO sto;
+	//	sto.setEngine(c.getEngine());
+	//	sto.uprgade();
+	//}
+
+	//en->start();
+
+	//Human h(20);
+
+
+	//Player p("Messi", 20, 980);
+
+	//p.info();
+	//p.method();
+
+
+
+
+
+
+
+
+	//==========================================
 	//18.10.2026 Home Work 11
 
-	BasePolice policeBase;
-	int choice;
+	//BasePolice policeBase;
+	//int choice;
 
-	do
-	{
-		cout << "\n================ МЕНЮ БАЗИ ДАНИХ ДАІ ================\n";
-		cout << "1. Додати новий протокол \n";
-		cout << "2. Друк протоколів за номером авто\n";
-		cout << "3. Повний друк усієї бази даних \n";
-		cout << "4. Друк за діапазоном номерів \n";
-		cout << "5. Оплатити штраф \n";
-		cout << "6. Зберегти базу у файл \n";
-		cout << "7. Завантажити базу з файлу \n";
-		cout << "0. Вихід\n";
-		cout << "=====================================================\n";
-		cout << "Оберіть дію: ";
-		cin >> choice;
+	//do
+	//{
+	//	cout << "\n================ МЕНЮ БАЗИ ДАНИХ ДАІ ================\n";
+	//	cout << "1. Додати новий протокол \n";
+	//	cout << "2. Друк протоколів за номером авто\n";
+	//	cout << "3. Повний друк усієї бази даних \n";
+	//	cout << "4. Друк за діапазоном номерів \n";
+	//	cout << "5. Оплатити штраф \n";
+	//	cout << "6. Зберегти базу у файл \n";
+	//	cout << "7. Завантажити базу з файлу \n";
+	//	cout << "0. Вихід\n";
+	//	cout << "=====================================================\n";
+	//	cout << "Оберіть дію: ";
+	//	cin >> choice;
 
-		switch (choice)
-		{
-		case 1:
-			policeBase.addProtocol();
-			break;
+	//	switch (choice)
+	//	{
+	//	case 1:
+	//		policeBase.addProtocol();
+	//		break;
 
-		case 2:
-			policeBase.print();
-			break;
+	//	case 2:
+	//		policeBase.print();
+	//		break;
 
-		case 3:
-			policeBase.printAll();
-			break;
+	//	case 3:
+	//		policeBase.printAll();
+	//		break;
 
-		case 4:
-		{
-			string n1, n2;
-			cout << "Введіть початковий номер діапазону: ";
-			cin >> n1;
-			cout << "Введіть кінцевий номер діапазону: ";
-			cin >> n2;
-			policeBase.print(n1, n2);
-			break;
-		}
+	//	case 4:
+	//	{
+	//		string n1, n2;
+	//		cout << "Введіть початковий номер діапазону: ";
+	//		cin >> n1;
+	//		cout << "Введіть кінцевий номер діапазону: ";
+	//		cin >> n2;
+	//		policeBase.print(n1, n2);
+	//		break;
+	//	}
 
-		case 5:
-			policeBase.pay();
-			break;
+	//	case 5:
+	//		policeBase.pay();
+	//		break;
 
-		case 6:
-			policeBase.save();
-			break;
+	//	case 6:
+	//		policeBase.save();
+	//		break;
 
-		case 7:
-			policeBase.load();
-			break;
+	//	case 7:
+	//		policeBase.load();
+	//		break;
 
-		case 0:
-			cout << "Завершення роботи програми.\n";
-			break;
+	//	case 0:
+	//		cout << "Завершення роботи програми.\n";
+	//		break;
 
-		default:
-			cout << "Некоректний вибір! Спробуйте ще раз.\n";
-		}
+	//	default:
+	//		cout << "Некоректний вибір! Спробуйте ще раз.\n";
+	//	}
 
-	} while (choice != 0);
+	//} while (choice != 0);
 
 	// 16.10.2026 Lesson 11
 
