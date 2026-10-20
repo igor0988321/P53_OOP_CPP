@@ -26,6 +26,7 @@
 #include"BasePolice.h"
 #include"Composition.h"
 #include"Inherit.h"
+#include"Pet.h"
 
 using namespace std;
 
@@ -50,6 +51,26 @@ void printArray(Array<T> a)
 int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
+
+
+	//20.10.2026 Hoem Work 12 
+
+
+	BitString b1("0101");
+	BitString b2("0011");
+	BitString b_invalid("01021");
+
+	cout << "b1: " << b1 << endl;
+	cout << "b2: " << b2 << endl;
+	cout << "Невалидная строка (пустая): '" << b_invalid << "'" << endl;
+
+	//Dog dog("Рекс", 3, 15.5, "Сухий корм", "Сидіти");
+	//Cat cat("Мурчик", 2, 4.2, "Вологий корм", true);
+	//Parrot parrot("Кеша", 1, 0.3, "Зерно", 25.5);
+
+	//dog.printDog();
+	//cat.printCat();
+	//parrot.printParrot();
 
 	//==========================================
 	//19.10.2026 Lesson 12 Композиція // Наслідування

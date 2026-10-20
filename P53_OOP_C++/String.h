@@ -5,6 +5,8 @@ using namespace std;
 
 class String
 {
+
+protected:
 	char* str;
 	int size;
 
@@ -28,7 +30,7 @@ public:
 	{
 		size = obj.size;
 		str = new char[size + 1];
-		strcpy(str, obj.str);
+		strcpy_s(str, size + 1, obj.str);
 	}
 
 	~String()
@@ -42,6 +44,14 @@ public:
 		delete[] str;
 		str = new char[size];
 		return *this;
+	}
+
+	void clear()
+	{
+		delete[] str;
+		size = 0;
+		str = new char[1];
+		str[0] = '\0';
 	}
 
 	String& operator=(const String& obj)
@@ -147,3 +157,100 @@ ostream& operator<<(ostream& str, const String& obj)
 	}
 	return str;
 }
+
+
+class BitString : public String
+{
+	bool  isBit(const char* s) const
+	{
+		if (s == nullptr)
+		{
+			return;
+		}
+		for (size_t i = 0; s[i]!= '\0'; i++)
+		{
+			if (s[i] != '0' && s[i] != '1')
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+public:
+
+	BitString() : String() {}
+
+	BitString(const char* str) : String()
+	{
+		if (isBit(str))
+		{
+			delete[] this->str;
+			this->size = strlen(str);
+			this->str = new char[this->size + 1];
+			strcpy_s(this->str, this->size + 1, str);
+		}
+		else
+		{
+			clear();
+		}
+	}
+
+	BitString(const BitString& obj) : String(obj) {}
+
+	~BitString() {}
+
+	BitString& operator=(const BitString& obj)
+	{
+		String::operator=(obj);
+		return *this;
+	}
+
+	void change()
+	{
+		if (size == 0)
+		{
+			return;
+		}
+		for (size_t i = 0; i < size; i++)
+		{
+			if (str[i] == '0')
+			{
+				str[i] = '1';
+			}
+			else
+			{
+				str[i] = '0';
+			}
+		}
+
+		int temp = 1;
+		for (int i = size - 1; i >= 0; i--)
+		{
+			if (temp == 0) break;
+
+			if (str[i] == '1')
+			{
+				str[i] = '0';
+			}
+			else
+			{
+				str[i] = '1';
+				temp = 0;
+			}
+		}
+	}
+
+
+
+	bool operator==(const BitString& obj) const
+	{
+		return String::operator==(obj);
+	}
+
+
+	bool operator!=(const BitString& obj) const
+	{
+		return String::operator!=(obj);
+	}
+};
