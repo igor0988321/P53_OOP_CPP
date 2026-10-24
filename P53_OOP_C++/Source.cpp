@@ -27,6 +27,7 @@
 #include"Composition.h"
 #include"Inherit.h"
 #include"Pet.h"
+#include"Animal.h"
 
 using namespace std;
 
@@ -52,17 +53,79 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	//24.10.2026 Home Work 13 
+
+
+
+	//23.10.2026 Lesson 13 
+
+	//Animal* a = new Animal("????", 0);
+	//cout << a->getName() << endl;
+	//cout << a->getType() << endl;
+	//cout << a->getVoice() << endl;
+
+	//cout << endl;
+
+	//Animal* c = new Cat("Tom", 3);
+	//cout << c->getName() << endl;
+	//cout << c->getType() << endl;
+	//cout << c->getVoice() << endl;
+
+	//cout << endl;
+
+	//Animal* d = new Dog("Spike", 5);
+	//cout << d->getName() << endl;
+	//cout << d->getType() << endl;
+	//cout << d->getVoice() << endl;
+
+
+	//Animal* sc = new SiamCat("Barsik", 4);
+
+	//cout << endl;
+	//Animal* aa[] = { /*a,*/ c, d, sc, new Ravlik("Vasya", 1)};
+	//for (size_t i = 0; i < 4; i++)
+	//{
+	//	cout << aa[i]->getName() << endl;
+	//	cout << aa[i]->getType() << endl;
+	//	cout << aa[i]->getVoice() << endl;
+	//	cout << endl;
+	//}
+
+
+	Animal* c = new Cat("Tom2", 3);
+	cout << c->getType() << endl;
+
+	delete c;
+
+	//Animal& a = c;
+	//cout << a.getType() << endl;
+
+	//Animal* aa = &c;
+	//cout << aa->getType() << endl;
+
+	//Router r(123, 456, 789, 999);
+	//cout << r.LANDevice::getID() << endl;
+	//cout << r.WiFiDevice::getID() << endl;
+
+	//r.LANDevice::Device::id = 10;
+	//cout << r.LANDevice::Device::id << endl;
+	//cout << r.WiFiDevice::Device::id << endl;
+
+	//r.WiFiDevice::Device::id = 20;
+	//cout << r.LANDevice::Device::id << endl;
+	//cout << r.WiFiDevice::Device::id << endl;
+
 
 	//20.10.2026 Hoem Work 12 
 
 
-	BitString b1("0101");
-	BitString b2("0011");
-	BitString b_invalid("01021");
+	//BitString b1("0101");
+	//BitString b2("0011");
+	//BitString b_invalid("01021");
 
-	cout << "b1: " << b1 << endl;
-	cout << "b2: " << b2 << endl;
-	cout << "Невалидная строка (пустая): '" << b_invalid << "'" << endl;
+	//cout << "b1: " << b1 << endl;
+	//cout << "b2: " << b2 << endl;
+	//cout << "Невалидная строка (пустая): '" << b_invalid << "'" << endl;
 
 	//Dog dog("Рекс", 3, 15.5, "Сухий корм", "Сидіти");
 	//Cat cat("Мурчик", 2, 4.2, "Вологий корм", true);
