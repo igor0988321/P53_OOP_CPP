@@ -150,6 +150,7 @@
     <ClInclude Include="Bus.h" />
     <ClInclude Include="Calc.h" />
     <ClInclude Include="Composition.h" />
+    <ClInclude Include="File.h" />
     <ClInclude Include="ForwardList.h" />
     <ClInclude Include="Fraction.h" />
     <ClInclude Include="Inherit.h" />
