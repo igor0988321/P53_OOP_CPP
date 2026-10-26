@@ -29,6 +29,8 @@
 #include"Pet.h"
 #include"Animal.h"
 #include"File.h"
+#include"WarOfWorld.h"
+
 
 using namespace std;
 
@@ -54,25 +56,31 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	//26.10.2026 Lesson 14
+
+	WarOfWord war(5);
+	war.game();
+
+
 	//24.10.2026 Home Work 13 
 
-	File* reads[] =
-	{
-		new File(),
-		new AsciiFile(),
-		new BinaryFile(),
-		new HexFile()
-	};
+	//File* reads[] =
+	//{
+	//	new File(),
+	//	new AsciiFile(),
+	//	new BinaryFile(),
+	//	new HexFile()
+	//};
 
-	for (File* reader : reads)
-	{
-		reader->display();
-	}
+	//for (File* reader : reads)
+	//{
+	//	reader->display();
+	//}
 
 
-	for (File* reader : reads) {
-		delete reader;
-	}
+	//for (File* reader : reads) {
+	//	delete reader;
+	//}
 
 
 

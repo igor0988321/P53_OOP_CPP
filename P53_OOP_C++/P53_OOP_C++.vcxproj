@@ -139,6 +139,8 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConsoleMenu.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,9 +152,11 @@
     <ClInclude Include="Bus.h" />
     <ClInclude Include="Calc.h" />
     <ClInclude Include="Composition.h" />
+    <ClInclude Include="ConsoleMenu.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="ForwardList.h" />
     <ClInclude Include="Fraction.h" />
+    <ClInclude Include="func.h" />
     <ClInclude Include="Inherit.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Node.h" />
@@ -160,12 +164,14 @@
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Reservoir.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Stack2.h" />
     <ClInclude Include="String.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="var.h" />
+    <ClInclude Include="WarOfWorld.h" />
     <ClInclude Include="Worker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,7 +13,7 @@ public:
 
 	virtual void display()
 	{
-		ifstream file("test.txt", ios::in | ios::binary);
+		ifstream file("test.txt");
 		if (!file.is_open())
 		{
 			cout << "Помилка" << "test.txt" << endl;
@@ -36,7 +36,7 @@ class AsciiFile : public File
 public:
 	void display() override
 	{
-		ifstream file("test.txt", ios::in | ios::binary);
+		ifstream file("test.txt");
 		if (!file.is_open())
 		{
 			cout << "Помилка" << "test.txt" << endl;
@@ -59,7 +59,7 @@ class BinaryFile : public File
 public:
 	void display() override
 	{
-		ifstream file("test.txt", ios::in | ios::binary);
+		ifstream file("test.txt");
 		if (!file.is_open())
 		{
 			cout << "Помилка" << "test.txt" << endl;
@@ -82,7 +82,7 @@ class HexFile : public File
 public:
 	void display() override
 	{
-		ifstream file("test.txt", ios::in | ios::binary);
+		ifstream file("test.txt");
 		if (!file.is_open())
 		{
 			cout << "Помилка" << "test.txt" << endl;
