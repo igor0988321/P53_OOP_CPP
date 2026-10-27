@@ -90,9 +90,10 @@ public:
 
 		w->setHP(w->getHP() - getDamage());
 
-		// rnd
-		if (skill)
+		if (skill && (rand() % 2 == 0))
+		{
 			skill->execute(w);
+		}
 	}
 
 	virtual ostream& print(ostream& out) const override
@@ -111,7 +112,8 @@ public:
 
 	virtual void attack(Warrior* w) override
 	{
-
+		cout << "Rider fights" << endl;
+		w->setHP(w->getHP() - getDamage());
 	}
 
 	virtual ostream& print(ostream& out) const override
@@ -130,8 +132,10 @@ public:
 
 	virtual void attack(Warrior* w) override
 	{
-
+		cout << "Swordsman fights" << endl;
+		w->setHP(w->getHP() - getDamage());
 	}
+
 
 	virtual ostream& print(ostream& out) const override
 	{
@@ -149,8 +153,10 @@ public:
 
 	virtual void attack(Warrior* w) override
 	{
-
+		cout << "Ork fights" << endl;
+		w->setHP(w->getHP() - getDamage());
 	}
+
 
 	virtual ostream& print(ostream& out) const override
 	{
@@ -168,8 +174,10 @@ public:
 
 	virtual void attack(Warrior* w) override
 	{
-
+		cout << "Zombe fights" << endl;
+		w->setHP(w->getHP() - getDamage());
 	}
+
 
 	virtual ostream& print(ostream& out) const override
 	{
@@ -187,8 +195,10 @@ public:
 
 	virtual void attack(Warrior* w) override
 	{
-
+		cout << "Skeleton fights" << endl;
+		w->setHP(w->getHP() - getDamage());
 	}
+
 
 	virtual ostream& print(ostream& out) const override
 	{
@@ -276,11 +286,32 @@ public:
 		s = w2;
 
 
-		// TODO
-		f->attack(s);
-		// TODO
-		s->attack(f);
+		if (rand() % 2 == 0)
+		{
+			f = w1;
+			s = w2;
+		}
+		else
+		{
+			f = w2;
+			s = w1;
+		}
 
-		return w2;
+		while (w1->getHP() > 0 && w2->getHP() > 0)
+		{
+			f->attack(s);
+			if (s->getHP() <= 0) break;
+
+			s->attack(f);
+		}
+
+		if (w1->getHP() <= 0)
+		{
+			return w1;
+		}
+		else
+		{
+			return w2;
+		}
 	}
 };

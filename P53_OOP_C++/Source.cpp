@@ -10,7 +10,7 @@
 #include"Area.h"
 #include"Time.h"
 #include"Reservoir.h"
-#include"String.h"
+//#include"String.h"
 #include"Worker.h"
 #include"Fraction.h"
 
@@ -27,7 +27,7 @@
 #include"Composition.h"
 #include"Inherit.h"
 #include"Pet.h"
-#include"Animal.h"
+//#include"Animal.h"
 #include"File.h"
 #include"WarOfWorld.h"
 
@@ -56,10 +56,16 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
-	//26.10.2026 Lesson 14
+
+	//27.10.2026 Home Work  14
 
 	WarOfWord war(5);
 	war.game();
+
+	//26.10.2026 Lesson 14
+
+	//WarOfWord war(5);
+	//war.game();
 
 
 	//24.10.2026 Home Work 13 

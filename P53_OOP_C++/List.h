@@ -2,6 +2,7 @@
 #include<initializer_list>
 
 #include"Node.h"
+#include"func.h"
 
 using namespace std;
 
@@ -40,6 +41,7 @@ public:
 
 	size_t getSize() const;
 	void print() const;
+	void print(int x , int y) const;
 	void clear();
 
 	int firstIndex(const T& value);
@@ -350,6 +352,19 @@ void List<T>::print() const
 	while (temp)
 	{
 		cout << temp->value << " ";
+		temp = temp->next;
+	}
+	cout << endl;
+}
+
+template<class T>
+void List<T>::print(int x, int y) const
+{
+	Node<T>* temp = first;
+	while (temp)
+	{
+		SetCursor(x, y++);
+		cout << temp->value;
 		temp = temp->next;
 	}
 	cout << endl;

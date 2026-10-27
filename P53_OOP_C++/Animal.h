@@ -21,7 +21,7 @@ public:
 	virtual string getVoice() = 0;
 };
 
-string Animal::getVoice()
+inline string Animal::getVoice()
 {
 	return "????";
 }
