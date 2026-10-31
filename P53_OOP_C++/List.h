@@ -59,6 +59,9 @@ public:
 template<class T>
 Node<T>* List<T>::getNode(size_t index) const
 {
+	if(index >= size)
+		throw "Index out"
+
 	Node<T>* pos = nullptr;
 	if (index < size / 2)
 	{
@@ -171,6 +174,9 @@ void List<T>::push_back(const T& value)
 template<class T>
 void List<T>::insert(const T& value, size_t index)
 {
+	if (index > size)
+		throw "Insert index out size";
+
 	if (index == 0)
 	{
 		push_front(value);
@@ -194,6 +200,9 @@ void List<T>::insert(const T& value, size_t index)
 template<class T>
 void List<T>::pop_front()
 {
+	if (size == 0)
+		throw "List is empty";
+	
 	if (size > 0)
 	{
 		Node<T>* temp = first;
@@ -209,6 +218,10 @@ void List<T>::pop_front()
 template<class T>
 void List<T>::pop_back()
 {
+
+	if (size == 0)
+		throw "List is empty";
+
 	if (size > 0)
 	{
 		if (size == 1)
@@ -229,6 +242,10 @@ void List<T>::pop_back()
 template<class T>
 void List<T>::remove(size_t index)
 {
+
+	if (index >= size)
+		throw "Remove index out of size";
+
 	if (index == 0)
 	{
 		pop_front();
@@ -317,6 +334,9 @@ template<class T>
  template<class T>
  T& List<T>::front() const
  {
+	 if (size == 0)
+		 throw "List is empty";
+
 	 return first->value;
  }
 
@@ -324,6 +344,9 @@ template<class T>
  template<class T>
  T& List<T>::back() const
  {
+	 if (size == 0)
+		 throw "List is empty";
+
 	 return last->value;
  }
 

@@ -65,49 +65,66 @@ int main(){
 	SetConsoleCP(65001);
 
 
-	//31.10.2026 Lesson 15 Винятки
-
-	throw 1;
-	throw "Error";
-	throw Time();
+	//31.10.2026 Home Work 15 
 
 	try
 	{
-		int a, b;
-		cin >> a >> b;
-		//if (b == 0)
-		//{
-		//	throw  MyException(__DATE__, __TIME__, __FILE__, __LINE__, "Div by zero");
-		//}
-		//if (b == 1)
-		//{
-		//	throw 100;
-		//}
-		//cout << a / b << endl;
-
-		cout << div_(a, b) << endl;
-	}
-	catch (exception& ex)
-	{
-		cout << ex.what() << endl;
-	}
-	catch (MyException& ex)
-	{
-		ex.getConsoleError();
-		ex.saveToFile();
+		List<int> l = { 10,20,30 };
+		cout << l.at(10) << endl;
 	}
 	catch (const char* err)
 	{
-		cout << err << endl;
-	}
-	catch (int a)
-	{
-		cout << "Int " << a << endl;
+		cout << "Помилка " << err << endl;
 	}
 	catch (...)
 	{
-		cout << "Fatal Error" << endl;
+		cout << "Помилка" << endl;
 	}
+
+
+	//31.10.2026 Lesson 15 Винятки
+
+	//throw 1;
+	//throw "Error";
+	//throw Time();
+
+	//try
+	//{
+	//	int a, b;
+	//	cin >> a >> b;
+	//	//if (b == 0)
+	//	//{
+	//	//	throw  MyException(__DATE__, __TIME__, __FILE__, __LINE__, "Div by zero");
+	//	//}
+	//	//if (b == 1)
+	//	//{
+	//	//	throw 100;
+	//	//}
+	//	//cout << a / b << endl;
+
+	//	cout << div_(a, b) << endl;
+	//}
+	//catch (exception& ex)
+	//{
+	//	cout << ex.what() << endl;
+	//}
+	//catch (MyException& ex)
+	//{
+	//	ex.getConsoleError();
+	//	ex.saveToFile();
+	//}
+	//catch (const char* err)
+	//{
+	//	cout << err << endl;
+	//}
+	//catch (int a)
+	//{
+	//	cout << "Int " << a << endl;
+	//}
+	//catch (...)
+	//{
+	//	cout << "Fatal Error" << endl;
+	//}
 
 	//============================================
 	//List<Light*> l = { new Swordsman(10,10) };
