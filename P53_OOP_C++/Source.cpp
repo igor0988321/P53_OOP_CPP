@@ -30,6 +30,7 @@
 //#include"Animal.h"
 #include"File.h"
 #include"WarOfWorld.h"
+#include"MyException.h"
 
 
 using namespace std;
@@ -47,20 +48,103 @@ void printArray(Array<T> a)
 }
 
 
-//void addTimePeople(People& p)
+//void addTimePeople(People& p) noexcept
 //{
 //	p.addTime();
 //}
+
+float div_(int a, int b)
+{
+		if (b == 0)
+			throw new invalid_argument("b = 0");
+		return a / b;
+}
 
 int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
 
+	//31.10.2026 Lesson 15 Винятки
+
+	throw 1;
+	throw "Error";
+	throw Time();
+
+	try
+	{
+		int a, b;
+		cin >> a >> b;
+		//if (b == 0)
+		//{
+		//	throw  MyException(__DATE__, __TIME__, __FILE__, __LINE__, "Div by zero");
+		//}
+		//if (b == 1)
+		//{
+		//	throw 100;
+		//}
+		//cout << a / b << endl;
+
+		cout << div_(a, b) << endl;
+	}
+	catch (exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
+	catch (MyException& ex)
+	{
+		ex.getConsoleError();
+		ex.saveToFile();
+	}
+	catch (const char* err)
+	{
+		cout << err << endl;
+	}
+	catch (int a)
+	{
+		cout << "Int " << a << endl;
+	}
+	catch (...)
+	{
+		cout << "Fatal Error" << endl;
+	}
+
+	//============================================
+	//List<Light*> l = { new Swordsman(10,10) };
+	//List<Warrior*> l1;
+	//for (size_t i = 0; i < l.getSize(); i++)
+	//{
+	//	l1.push_back(l[i]);
+	//}
+	//l1.print();
+	//l.print();
+
+	//int a, b;
+	//cin >> a >> b;
+	//cout << a / b << endl;
+
+	//PriorityQueue<int, int> p;
+	//p.enqueue(10, 10);
+	//p.print();
+
+	//Animal* cat = new Cat("tom", 3);
+
+	//Cat* c = dynamic_cast<Cat*>(cat); //динамічне приведення типу
+
+	//if (c)
+	//{
+	//	c->cathMouse();
+	//	cout << c->getMouse() << endl;
+	//}
+	//else
+	//{
+	//	cout << "No Cat" << endl;
+	//}
+
 	//27.10.2026 Home Work  14
 
-	WarOfWord war(5);
-	war.game();
+	//WarOfWord war(5);
+	//war.game();
 
 	//26.10.2026 Lesson 14
 

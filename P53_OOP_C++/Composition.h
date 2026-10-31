@@ -243,6 +243,8 @@ public:
 		cout << "Goal : "<< goal << endl;
 	}
 
+	void info(int a){}
+
 	void method() = delete;
 };
 

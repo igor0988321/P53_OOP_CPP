@@ -19,6 +19,8 @@ public:
 	virtual string getType() { return "Animal"; }
 
 	virtual string getVoice() = 0;
+
+
 };
 
 inline string Animal::getVoice()
@@ -29,6 +31,8 @@ inline string Animal::getVoice()
 
 class Cat : public Animal
 {
+	int mouse = 0;
+
 public:
 	Cat(string n, int a) : Animal(n, a) {}
 
@@ -37,6 +41,10 @@ public:
 	virtual string getType() override { return "Cat"; }
 
 	virtual string getVoice() override { return "Mau Mau"; }
+
+	void cathMouse() { mouse++; }
+
+	int getMouse() { return mouse; }
 };
 
 

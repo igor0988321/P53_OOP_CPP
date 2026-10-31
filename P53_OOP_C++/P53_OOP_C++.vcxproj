@@ -159,6 +159,7 @@
     <ClInclude Include="func.h" />
     <ClInclude Include="Inherit.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MYException.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="PriorityQueue.h" />
