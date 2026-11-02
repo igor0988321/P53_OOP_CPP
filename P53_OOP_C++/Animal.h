@@ -3,6 +3,12 @@
 
 using namespace std;
 
+class IPrinable
+{
+public:
+	virtual void print() = 0;
+};
+
 class Animal
 {
 	string name;
@@ -29,7 +35,7 @@ inline string Animal::getVoice()
 }
 
 
-class Cat : public Animal
+class Cat : public Animal, public IPrinable
 {
 	int mouse = 0;
 
@@ -59,7 +65,7 @@ public:
 };
 
 
-class Dog : public Animal
+class Dog : public Animal, public IPrinable
 {
 public:
 	Dog(string n, int a) : Animal(n, a) {}

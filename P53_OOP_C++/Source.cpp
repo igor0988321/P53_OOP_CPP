@@ -27,10 +27,11 @@
 #include"Composition.h"
 #include"Inherit.h"
 #include"Pet.h"
-//#include"Animal.h"
+#include"Animal.h"
 #include"File.h"
 #include"WarOfWorld.h"
 #include"MyException.h"
+#include"SmartPointer.h"
 
 
 using namespace std;
@@ -60,26 +61,87 @@ float div_(int a, int b)
 		return a / b;
 }
 
+void PrintAnimal(IPrinable* a)
+{
+	a->print();
+}
+
+//void superFunc()
+//{
+//	SmartPointer<Cat> = c(new Cat("Tom", 3));
+//	
+//	SmartPointer<Cat>c1 = move(c);
+// 
+// //	int a;
+//	cin >> a;
+//	if (a == 0)
+//	{
+//		throw new invalid_argument("a = 0");
+//	}
+//}
+
+
+//Cat fff()
+//{
+//	Cat c("Tom", 3);
+//	return c;
+//}
+
 int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	 
+	//02.11.2026 Lesson  16  умные покажчики
+
+	//int a = 8;
+	//int b = 9;
+	//swap(a, b);
+
+	//unique_ptr<Cat> c = make_unique<Cat>("Tom", 3);
+	//c->print();
+
+	//unique_ptr<Cat> c;
+	//c1 = move(c);
+	//c1->print();
+
+	//cout << c << endl;
+	//cout << c1 << endl;
+	// 
+	// shared_ptr<Cat> k1 = make_shared<Cat>("Tom", 4);
+	// 
+	// 
+	//int a = 10;
+	//int&& b = 10;
+
+	//List < Cat < l = { Cat("Ton", 3), Cat("Barsik", 3) };
+	//List<Cat>l;
+	// Cat c =Cat("Tom", 3);
+	// l.push_back(c);
+	//l.push_back(Cat("Tom", 3));
+
+	//SuperFunc();
+
+	//IPrinable*  a = new SiamCat("Barsik", 3);
+
+	//PrintAnimal(a);
+
 
 	//31.10.2026 Home Work 15 
 
-	try
-	{
-		List<int> l = { 10,20,30 };
-		cout << l.at(10) << endl;
-	}
-	catch (const char* err)
-	{
-		cout << "Помилка " << err << endl;
-	}
-	catch (...)
-	{
-		cout << "Помилка" << endl;
-	}
+	//try
+	//{
+	//	List<int> l = { 10,20,30 };
+	//	cout << l.at(10) << endl;
+	//}
+	//catch (const char* err)
+	//{
+	//	cout << "Помилка " << err << endl;
+	//}
+	//catch (...)
+	//{
+	//	cout << "Помилка" << endl;
+	//}
 
 
 	//31.10.2026 Lesson 15 Винятки

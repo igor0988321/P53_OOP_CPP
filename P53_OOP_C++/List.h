@@ -59,25 +59,21 @@ public:
 template<class T>
 Node<T>* List<T>::getNode(size_t index) const
 {
-	if(index >= size)
-		throw "Index out"
+	if (index >= size)
+		throw std::out_of_range("Index out of range");
 
 	Node<T>* pos = nullptr;
 	if (index < size / 2)
 	{
 		pos = first;
 		for (size_t i = 0; i < index; i++)
-		{
 			pos = pos->next;
-		}
 	}
 	else
 	{
 		pos = last;
 		for (size_t i = 0; i < size - 1 - index; i++)
-		{
 			pos = pos->prev;
-		}
 	}
 	return pos;
 }
@@ -146,7 +142,15 @@ void List<T>::push_front(const T& value)
 	}
 	else
 	{
-		Node<T>* newNode = new Node<T>(value);
+		Node<T>* newNode = nullptr;
+		try
+		{
+			Node<T>* newNode = new Node<T>(value);
+		}
+		catch (bad_alloc& ex)
+		{
+			throw;
+		}
 		newNode->next = first;
 		first->prev = newNode;
 		first = newNode;
