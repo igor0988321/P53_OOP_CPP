@@ -28,12 +28,12 @@
 #include"Composition.h"
 #include"Inherit.h"
 #include"Pet.h"
-#include"Animal.h"
+//#include"Animal.h"
 #include"File.h"
 #include"WarOfWorld.h"
 #include"MyException.h"
-#include"SmartPointer.h"
-
+//#include"SmartPointer.h"
+#include"Train.h"
 
 using namespace std;
 
@@ -62,10 +62,10 @@ float div_(int a, int b)
 		return a / b;
 }
 
-void PrintAnimal(IPrinable* a)
-{
-	a->print();
-}
+//void PrintAnimal(IPrinable* a)
+//{
+//	a->print();
+//}
 
 //void superFunc()
 //{
@@ -127,40 +127,83 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 05.11.2026
+
+	vector<Train> t;
+	int opt = 0;
+
+	do {
+		cout << "\n=========================================\n";
+		cout << " АІС \"ЗАЛІЗНИЧНИЙ ВОКЗАЛ\"\n";
+		cout << "=========================================\n";
+		cout << "1. Додати поїзди у базу\n";
+		cout << "2. Показати всі поїзди\n";
+		cout << "3. Знайти поїзд (за номером або станцією)\n";
+		cout << "0. Вийти з програми\n";
+		cout << "-----------------------------------------\n";
+		cout << "Оберіть дію: ";
+
+		if (!(cin >> opt)) {
+			cout << "Помилка введення! Введіть число від 0 до 3.\n";
+			clear();
+			continue;
+		}
+
+		switch (opt) {
+		case 1:
+			inputTrain(t);
+			break;
+		case 2:
+			displayall(t);
+			break;
+		case 3:
+			search(t);
+			break;
+		case 0:
+			cout << "\nРоботу програми завершено. До побачення!\n";
+			break;
+		default:
+			cout << "\nНевірний вибір. Спробуйте ще раз.\n";
+			break;
+		}
+	} while (opt != 0);
+
+
+
 	// 04.11.2026
 
-	vector<int> v = { 1,2,3,4,5,6 };
-	vector<int> v1 = { 12,23,34,45,56,67 };
-	print(v);
+	//vector<int> v = { 1,2,3,4,5,6 };
+	//vector<int> v1 = { 12,23,34,45,56,67 };
+	//print(v);
 
-	//v.insert(v.begin() + 3, 99);
-	//v.insert(v.begin() + 3, v1.begin()+2, v1.begin()+5);
-	v.insert(v.begin() + 3, { 6,7,8,9, });
-	print(v);
+	////v.insert(v.begin() + 3, 99);
+	////v.insert(v.begin() + 3, v1.begin()+2, v1.begin()+5);
+	//v.insert(v.begin() + 3, { 6,7,8,9, });
+	//print(v);
 
 	//vector<Cat> vc = { Cat("Tom", 3), Cat("Murka", 2) };
 	//vc.insert(vc.begin() + 1, Cat("Barsik", 4));
 	//vc.emplace(vc.begin() + 1, "Barsik", 4);
 
-	erase_if(v, [](int a) { return a % 2 == 0; });
-	print(v);
+	//erase_if(v, [](int a) { return a % 2 == 0; });
+	//print(v);
 
-	[]() {};
+	//[]() {};
 
-	auto f = [](const char* message) { cout << message << endl; };
-	f("mama");
+	//auto f = [](const char* message) { cout << message << endl; };
+	//f("mama");
 
-	auto ff = [](int a)->int {
-		if (a == 0)
-			return 10;
-		return 5.0;	};
+	//auto ff = [](int a)->int {
+	//	if (a == 0)
+	//		return 10;
+	//	return 5.0;	};
 
-	cout << ff(40) << endl;
+	//cout << ff(40) << endl;
 
 
-	int c = 10, m = 12;
-	auto fff = [=, &c]() { cout << ++c << m << endl; };
-	fff();
+	//int c = 10, m = 12;
+	//auto fff = [=, &c]() { cout << ++c << m << endl; };
+	//fff();
 
 	//cout << v.size() << endl;
 	//cout << v.capacity() << endl;
