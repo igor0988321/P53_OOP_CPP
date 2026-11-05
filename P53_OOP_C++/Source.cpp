@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
+#include<vector>
 
 #include <windows.h>
 #include <thread> 
@@ -87,9 +88,86 @@ void PrintAnimal(IPrinable* a)
 //	return c;
 //}
 
+
+
+//void superFunc()
+//{
+//	SmartPointer<Cat> c(new Cat("Tom", 3));
+//
+//	SmartPointer<Cat>c1 = move(c);
+//
+//
+//
+//	int a;
+//	cin >> a;
+//	if (a == 0)
+//		throw new invalid_argument("a = 0");
+//
+//
+//	//delete c;
+//}
+
+template<class Cont>
+void print(Cont& cont)
+{
+	for (auto elem : cont)
+	{
+		cout << elem << " ";
+	}
+	cout << endl;
+}
+
+//bool isEven(int a)
+//{
+//	return a % 2 == 0;
+//}
+
+
 int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
+
+	// 04.11.2026
+
+	vector<int> v = { 1,2,3,4,5,6 };
+	vector<int> v1 = { 12,23,34,45,56,67 };
+	print(v);
+
+	//v.insert(v.begin() + 3, 99);
+	//v.insert(v.begin() + 3, v1.begin()+2, v1.begin()+5);
+	v.insert(v.begin() + 3, { 6,7,8,9, });
+	print(v);
+
+	//vector<Cat> vc = { Cat("Tom", 3), Cat("Murka", 2) };
+	//vc.insert(vc.begin() + 1, Cat("Barsik", 4));
+	//vc.emplace(vc.begin() + 1, "Barsik", 4);
+
+	erase_if(v, [](int a) { return a % 2 == 0; });
+	print(v);
+
+	[]() {};
+
+	auto f = [](const char* message) { cout << message << endl; };
+	f("mama");
+
+	auto ff = [](int a)->int {
+		if (a == 0)
+			return 10;
+		return 5.0;	};
+
+	cout << ff(40) << endl;
+
+
+	int c = 10, m = 12;
+	auto fff = [=, &c]() { cout << ++c << m << endl; };
+	fff();
+
+	//cout << v.size() << endl;
+	//cout << v.capacity() << endl;
+	//cout << v.max_size() << endl;
+
+	//auto it = v.begin() + 2;
+	//cout << *(it) << endl;
 
 	 
 	//02.11.2026 Lesson  16  умные покажчики
