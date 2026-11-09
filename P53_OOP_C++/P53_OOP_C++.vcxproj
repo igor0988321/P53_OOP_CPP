@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMenu.cpp" />
+    <ClCompile Include="md5.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="func.h" />
     <ClInclude Include="Inherit.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="md5.h" />
     <ClInclude Include="MYException.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Pet.h" />

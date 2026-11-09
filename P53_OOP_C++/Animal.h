@@ -18,15 +18,15 @@ class Animal
 public:
 	Animal(string n, int a) : name(n), age(a) {}
 
-	virtual ~Animal() { cout << "Destr Animal" << endl; }
+	virtual ~Animal() { /*cout << "Destr Animal" << endl;*/ }
 
-	string getName() { return name; }
+	string getName() { return name; } const
 
-	virtual string getType() { return "Animal"; }
+		virtual string getType() { return "Animal"; }
 
 	virtual string getVoice() = 0;
 
-
+	int getAge() { return age; }
 };
 
 inline string Animal::getVoice()

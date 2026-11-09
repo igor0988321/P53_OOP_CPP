@@ -1,6 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<vector>
+#include<array>
+#include<list>
+#include<stack>
+#include<set>
+#include<map>
 
 #include <windows.h>
 #include <thread> 
@@ -34,6 +39,7 @@
 #include"MyException.h"
 //#include"SmartPointer.h"
 #include"Train.h"
+#include"md5.h"
 
 using namespace std;
 
@@ -107,6 +113,37 @@ float div_(int a, int b)
 //	//delete c;
 //}
 
+class MyStack : public stack<int>
+{
+public:
+	MyStack(initializer_list<int> l)
+	{
+		for (auto elem : l)
+		{
+			push(elem);
+		}
+	}
+
+	void show()
+	{
+		auto it = this->c.begin(); 	//c - protected member of stack
+		while (it != this->c.end())
+		{
+			cout << *it << endl;
+			it++;
+		}
+	}
+};
+
+class FromCatName
+{
+public:
+	bool operator()(const Cat& c1, const Cat& c2) const
+	{
+		return c1.getName() < c2.getName();
+	}
+};
+
 template<class Cont>
 void print(Cont& cont)
 {
@@ -127,46 +164,109 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 09.11.2026
+
+	
+
+
+	map<string, Cat, FromCatName> cats;
+	cats.insert(make_pair("Tom", Cat("Tom", 3)));
+	cats.insert(make_pair("Bob", Cat("Tom", 3)));
+	cats.insert(make_pair("Alice", Cat("Tom", 3)));
+	for (auto elem : cats)
+	{
+		cout << elem.first << endl;
+	}
+
+
+
+	//set<int> s = { 1, 2, 3, 4, 3, 6, 5, 6, 7 };
+	//auto p = s.insert(16);
+	//cout << *p.first << " " << p.second << endl;
+	//print(s);
+
+	//cout << s.insert(16).second << endl;
+
+	//list<Cat> cats = { Cat("Tom", 3), Cat("Bob", 5), Cat("Alice", 2) };
+	//print(cats);
+	////cats.sort([](Cat& c1, Cat& c2) { return c1.getAge() < c2.getAge(); });
+	//cats.sort([](Cat& c1, Cat& c2) { return c1.getName() < c2.getName(); });
+	//print(cats);
+
+	//list<int> l = { 1,2,3,4,54,6 };
+	//cout << l.max_size() << endl;
+	//auto it = l.begin();
+	////advance(it, 3);
+	//l.insert(next(l.begin(), 3), 100);
+	//print(l);
+
+	//next(l.begin(), 3);
+
+
+	//MyStack s{ 1,2,3,4,5 };
+	//s.show();
+
+	//array<int, 5> arr = { 1,2,3,4,5 };	
+	//cout << arr.max_size() << endl;
+
+
+	//string password = "123456";
+	//string phash = md5(password);
+	//cout << "Password: " << password << endl;
+	//cout << "Hash: " << phash << endl;
+
+
+	//hash<string> h;
+	//auto hash2 = h(password);
+	//cout << "Hash2: " << hash2 << endl;
+
+
+
+
+
+
+
+
 	// 05.11.2026
 
-	vector<Train> t;
-	int opt = 0;
+	//vector<Train> t;
+	//int opt = 0;
 
-	do {
-		cout << "\n=========================================\n";
-		cout << " АІС \"ЗАЛІЗНИЧНИЙ ВОКЗАЛ\"\n";
-		cout << "=========================================\n";
-		cout << "1. Додати поїзди у базу\n";
-		cout << "2. Показати всі поїзди\n";
-		cout << "3. Знайти поїзд (за номером або станцією)\n";
-		cout << "0. Вийти з програми\n";
-		cout << "-----------------------------------------\n";
-		cout << "Оберіть дію: ";
+	//do {
+	//	cout << "\n=========================================\n";
+	//	cout << " АІС \"ЗАЛІЗНИЧНИЙ ВОКЗАЛ\"\n";
+	//	cout << "=========================================\n";
+	//	cout << "1. Додати поїзди у базу\n";
+	//	cout << "2. Показати всі поїзди\n";
+	//	cout << "3. Знайти поїзд (за номером або станцією)\n";
+	//	cout << "0. Вийти з програми\n";
+	//	cout << "-----------------------------------------\n";
+	//	cout << "Оберіть дію: ";
 
-		if (!(cin >> opt)) {
-			cout << "Помилка введення! Введіть число від 0 до 3.\n";
-			clear();
-			continue;
-		}
+	//	if (!(cin >> opt)) {
+	//		cout << "Помилка введення! Введіть число від 0 до 3.\n";
+	//		clear();
+	//		continue;
+	//	}
 
-		switch (opt) {
-		case 1:
-			inputTrain(t);
-			break;
-		case 2:
-			displayall(t);
-			break;
-		case 3:
-			search(t);
-			break;
-		case 0:
-			cout << "\nРоботу програми завершено. До побачення!\n";
-			break;
-		default:
-			cout << "\nНевірний вибір. Спробуйте ще раз.\n";
-			break;
-		}
-	} while (opt != 0);
+	//	switch (opt) {
+	//	case 1:
+	//		inputTrain(t);
+	//		break;
+	//	case 2:
+	//		displayall(t);
+	//		break;
+	//	case 3:
+	//		search(t);
+	//		break;
+	//	case 0:
+	//		cout << "\nРоботу програми завершено. До побачення!\n";
+	//		break;
+	//	default:
+	//		cout << "\nНевірний вибір. Спробуйте ще раз.\n";
+	//		break;
+	//	}
+	//} while (opt != 0);
 
 
 
