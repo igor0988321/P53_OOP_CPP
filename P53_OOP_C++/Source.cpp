@@ -32,8 +32,8 @@
 #include"BasePolice.h"
 #include"Composition.h"
 #include"Inherit.h"
-#include"Pet.h"
-//#include"Animal.h"
+//#include"Pet.h"
+#include"Animal.h"
 #include"File.h"
 #include"WarOfWorld.h"
 #include"MyException.h"
@@ -68,10 +68,7 @@ float div_(int a, int b)
 		return a / b;
 }
 
-//void PrintAnimal(IPrinable* a)
-//{
-//	a->print();
-//}
+
 
 //void superFunc()
 //{
@@ -113,27 +110,27 @@ float div_(int a, int b)
 //	//delete c;
 //}
 
-class MyStack : public stack<int>
-{
-public:
-	MyStack(initializer_list<int> l)
-	{
-		for (auto elem : l)
-		{
-			push(elem);
-		}
-	}
-
-	void show()
-	{
-		auto it = this->c.begin(); 	//c - protected member of stack
-		while (it != this->c.end())
-		{
-			cout << *it << endl;
-			it++;
-		}
-	}
-};
+//class MyStack : public stack<int>
+//{
+//public:
+//	MyStack(initializer_list<int> l)
+//	{
+//		for (auto elem : l)
+//		{
+//			push(elem);
+//		}
+//	}
+//
+//	void show()
+//	{
+//		auto it = this->c.begin(); 	//c - protected member of stack
+//		while (it != this->c.end())
+//		{
+//			cout << *it << endl;
+//			it++;
+//		}
+//	}
+//};
 
 class FromCatName
 {
@@ -144,15 +141,20 @@ public:
 	}
 };
 
-template<class Cont>
-void print(Cont& cont)
+void PrintAnimal(IPrinable* a)
 {
-	for (auto elem : cont)
-	{
-		cout << elem << " ";
-	}
-	cout << endl;
+	a->print();
 }
+
+//template<class Cont>
+//void print(Cont& cont)
+//{
+//	for (auto elem : cont)
+//	{
+//		cout << elem << " ";
+//	}
+//	cout << endl;
+//}
 
 //bool isEven(int a)
 //{
@@ -164,19 +166,34 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+
+	// 10.11.2026
+
+	map<Cat, string, FromCatName> cats;
+
+	cats.insert(make_pair(Cat("Tom", 3), "Tom"));
+	cats.insert(make_pair(Cat("Bob", 2), "Bob"));
+	cats.insert(make_pair(Cat("Alice", 1), "Alice"));
+
+	for (auto elem : cats)
+	{
+		Cat temp = elem.first;
+		PrintAnimal(&temp);
+	}
+
 	// 09.11.2026
 
 	
 
 
-	map<string, Cat, FromCatName> cats;
-	cats.insert(make_pair("Tom", Cat("Tom", 3)));
-	cats.insert(make_pair("Bob", Cat("Tom", 3)));
-	cats.insert(make_pair("Alice", Cat("Tom", 3)));
-	for (auto elem : cats)
-	{
-		cout << elem.first << endl;
-	}
+	//map<string, Cat, FromCatName> cats;
+	//cats.insert(make_pair("Tom", Cat("Tom", 3)));
+	//cats.insert(make_pair("Bob", Cat("Tom", 3)));
+	//cats.insert(make_pair("Alice", Cat("Tom", 3)));
+	//for (auto elem : cats)
+	//{
+	//	cout << elem.first << endl;
+	//}
 
 
 

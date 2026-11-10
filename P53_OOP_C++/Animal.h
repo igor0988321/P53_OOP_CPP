@@ -1,87 +1,94 @@
+
 #pragma once
+
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 class IPrinable
 {
 public:
-	virtual void print() = 0;
+    virtual void print() = 0;
+    virtual ~IPrinable() {}
 };
 
 class Animal
 {
-	string name;
-	int age;
-
+    string name;
+    int age;
 
 public:
-	Animal(string n, int a) : name(n), age(a) {}
+    Animal(string n, int a) : name(n), age(a) {}
 
-	virtual ~Animal() { /*cout << "Destr Animal" << endl;*/ }
+    virtual ~Animal() {}
 
-	string getName() { return name; } const
+    string getName() const { return name; }
+    int getAge() const { return age; }
 
-		virtual string getType() { return "Animal"; }
-
-	virtual string getVoice() = 0;
-
-	int getAge() { return age; }
+    virtual string getType() { return "Animal"; }
+    virtual string getVoice() = 0;
 };
 
 inline string Animal::getVoice()
 {
-	return "????";
+    return "????";
 }
-
 
 class Cat : public Animal, public IPrinable
 {
-	int mouse = 0;
+    int mouse = 0;
 
 public:
-	Cat(string n, int a) : Animal(n, a) {}
+    Cat(string n, int a) : Animal(n, a) {}
 
-	~Cat() { cout << "Destr Cat" << endl; }
+    ~Cat()
+    {
+        cout << "Destr Cat" << endl;
+    }
 
-	virtual string getType() override { return "Cat"; }
+    string getType() override { return "Cat"; }
+    string getVoice() override { return "Mau Mau"; }
 
-	virtual string getVoice() override { return "Mau Mau"; }
+    void print() override
+    {
+        cout << getType() << ": " << getName()
+            << ", Age: " << getAge() << endl;
+    }
 
-	void cathMouse() { mouse++; }
-
-	int getMouse() { return mouse; }
+    void cathMouse() { mouse++; }
+    int getMouse() const { return mouse; }
 };
-
 
 class SiamCat : public Cat
 {
 public:
-	SiamCat(string n, int a) : Cat(n, a) {}
+    SiamCat(string n, int a) : Cat(n, a) {}
 
-	virtual string getType() override { return "SiamCat"; }
-
-	virtual string getVoice() override { return "Myau Myau"; }
+    string getType() override { return "SiamCat"; }
+    string getVoice() override { return "Myau Myau"; }
 };
-
 
 class Dog : public Animal, public IPrinable
 {
 public:
-	Dog(string n, int a) : Animal(n, a) {}
+    Dog(string n, int a) : Animal(n, a) {}
 
-	virtual string getType() override { return "Dog"; }
+    string getType() override { return "Dog"; }
+    string getVoice() override { return "Gaw Gaw"; }
 
-	virtual string getVoice() override { return "Gaw Gaw"; }
+    void print() override
+    {
+        cout << getType() << ": " << getName()
+            << ", Age: " << getAge() << endl;
+    }
 };
-
 
 class Ravlik : public Animal
 {
 public:
-	Ravlik(string n, int a) : Animal(n, a) {}
+    Ravlik(string n, int a) : Animal(n, a) {}
 
-	virtual string getType() override { return "Ravlik"; }
-
-	virtual string getVoice() override { return Animal::getVoice(); }
+    string getType() override { return "Ravlik"; }
+    string getVoice() override { return Animal::getVoice(); }
 };
