@@ -25,7 +25,8 @@ public:
 
     string getName() const { return name; }
     int getAge() const { return age; }
-
+    int  setAge() { return age; }
+    void setAge(int a) { age = a; }
     virtual string getType() { return "Animal"; }
     virtual string getVoice() = 0;
 };
