@@ -166,20 +166,24 @@ int main(){
 	SetConsoleOutputCP(65001);
 	SetConsoleCP(65001);
 
+	// 11.11.2026
+
+	//FromCatName cmp;
+	//cmp()
 
 	// 10.11.2026
 
-	map<Cat, string, FromCatName> cats;
+	//map<string, Cat> cats;
 
-	cats.insert(make_pair(Cat("Tom", 3), "Tom"));
-	cats.insert(make_pair(Cat("Bob", 2), "Bob"));
-	cats.insert(make_pair(Cat("Alice", 1), "Alice"));
+	//cats.insert(make_pair(Cat("Tom", 3), "Tom"));
+	//cats.insert(make_pair(Cat("Bob", 2), "Bob"));
+	//cats.insert(make_pair(Cat("Alice", 1), "Alice"));
 
-	for (auto elem : cats)
-	{
-		Cat temp = elem.first;
-		PrintAnimal(&temp);
-	}
+	//for (auto elem : cats)
+	//{
+	//	Cat temp = elem.first;
+	//	PrintAnimal(&temp);
+	//}
 
 	// 09.11.2026
 
