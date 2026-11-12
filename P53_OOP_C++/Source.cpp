@@ -42,6 +42,7 @@
 //#include"SmartPointer.h"
 #include"Train.h"
 #include"md5.h"
+#include"Dictionary.h"
 
 using namespace std;
 
@@ -195,20 +196,25 @@ int main(){
 	//cout.fill('.');
 
 
+	// 12.11.2026
+
+	dictionary();
+
+
 	// 11.11.2026
 
 
 
-	list<Cat> cats = { Cat("Tom", 3), Cat("Bob", 5), Cat("Alice", 2) };
-	/*for_each(cats.begin(), cats.end(), [](Cat& c) { c.setAge(c.getAge() + 1); });
-	print(cats);*/
-	replace_if(cats.begin(), cats.end(), [](Cat& c) { return c.getAge() > 3; }, Cat("Jerry", 1));
-	//print(cats);
+	//list<Cat> cats = { Cat("Tom", 3), Cat("Bob", 5), Cat("Alice", 2) };
+	///*for_each(cats.begin(), cats.end(), [](Cat& c) { c.setAge(c.getAge() + 1); });
+	//print(cats);*/
+	//replace_if(cats.begin(), cats.end(), [](Cat& c) { return c.getAge() > 3; }, Cat("Jerry", 1));
+	////print(cats);
 
-	vector<int> v(10);
-	//int max = 9, min = 1;
-	generate(v.begin(), v.end(), [max = 9, min = 1]() { return rand() % (max - min + 1) + min; });
-	//print(v);
+	//vector<int> v(10);
+	////int max = 9, min = 1;
+	//generate(v.begin(), v.end(), [max = 9, min = 1]() { return rand() % (max - min + 1) + min; });
+	////print(v);
 
 
 

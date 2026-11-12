@@ -154,6 +154,7 @@
     <ClInclude Include="Calc.h" />
     <ClInclude Include="Composition.h" />
     <ClInclude Include="ConsoleMenu.h" />
+    <ClInclude Include="Dictionary.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="ForwardList.h" />
     <ClInclude Include="Fraction.h" />
