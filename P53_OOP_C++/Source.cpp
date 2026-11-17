@@ -164,26 +164,28 @@ void PrintAnimal(IPrinable* a)
 //	return a % 2 == 0;
 //}
 
-class  Calc
-{
-	int even = 0;
-	int odd = 0;
+//class  Calc
+//{
+//	int even = 0;
+//	int odd = 0;
+//
+//public:
+//	void operator()(int a)
+//	{
+//		if (a % 2 == 0)
+//		{
+//			even++;
+//		}
+//		else
+//		{
+//			odd++;
+//		}
+//	}
+//	int getEven() { return even; }
+//	int getOdd() { return odd; }
+//};
 
-public:
-	void operator()(int a)
-	{
-		if (a % 2 == 0)
-		{
-			even++;
-		}
-		else
-		{
-			odd++;
-		}
-	}
-	int getEven() { return even; }
-	int getOdd() { return odd; }
-};
+
 
 
 int main(){
@@ -196,9 +198,63 @@ int main(){
 	//cout.fill('.');
 
 
+	// 17.11.2026
+
+	namespace Alg = Math::Algebra;
+
+	Math::Algebra::Fraction f1(1, 2);
+	Math::Algebra::Fraction f2(3, 3);
+	std::cout << "f1 = " << f1;
+	std::cout << "f2 = " << f2;
+
+
+	Alg::Fraction sum = f1 + f2;
+	std::cout << "f1 + f2 = " << sum;
+
+	using Math::Algebra::Fraction;
+
+	Fraction f3;
+	f3(5, 6);
+	std::cout << f3;
+
+	std::cout << std::boolalpha << (f1 < f2) << std::endl;
+
+
+
+	// 16.11.2026
+
+	//using std::cout;
+	//using std::cin;
+	//using std::endl;
+
+	//Goo::foo();
+
+	//Foo::foo();
+
+	//{
+	//	using namespace Boo;
+	//	foo();
+	//	int a;
+	//}
+
+	//std::string in{ "ABCDEFGHIJK" }, out;
+	//std::sample(in.begin(), in.end(), std::back_inserter(out), 5,
+	//	std::mt19937{ std::random_device{}() });
+	//std::cout << "Four random letters out of " << in << ": " << out << '\n';
+
+
+	//{
+	//	using namespace Foo;
+	//	foo();
+	//}
+	//
+
+	//Foo::Doo::foo();
+
+
 	// 12.11.2026
 
-	dictionary();
+	//dictionary();
 
 
 	// 11.11.2026
