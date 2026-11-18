@@ -35,7 +35,7 @@
 #include"Composition.h"
 #include"Inherit.h"
 //#include"Pet.h"
-#include"Animal.h"
+//#include"Animal.h"
 #include"File.h"
 #include"WarOfWorld.h"
 #include"MyException.h"
@@ -43,6 +43,7 @@
 #include"Train.h"
 #include"md5.h"
 #include"Dictionary.h"
+#include"Island.h"
 
 using namespace std;
 
@@ -135,19 +136,19 @@ float div_(int a, int b)
 //	}
 //};
 
-class FromCatName
-{
-public:
-	bool operator()(const Cat& c1, const Cat& c2) const
-	{
-		return c1.getName() < c2.getName();
-	}
-};
+//class FromCatName
+//{
+//public:
+//	bool operator()(const Cat& c1, const Cat& c2) const
+//	{
+//		return c1.getName() < c2.getName();
+//	}
+//};
 
-void PrintAnimal(IPrinable* a)
-{
-	a->print();
-}
+//void PrintAnimal(IPrinable* a)
+//{
+//	a->print();
+//}
 
 //template<class Cont>
 //void print(Cont& cont)
@@ -197,27 +198,31 @@ int main(){
 	//cout.width(10);
 	//cout.fill('.');
 
+	//18.11.2026
+
+
+	start(30, 5, 5);
 
 	// 17.11.2026
 
-	namespace Alg = Math::Algebra;
+	//namespace Alg = Math::Algebra;
 
-	Math::Algebra::Fraction f1(1, 2);
-	Math::Algebra::Fraction f2(3, 3);
-	std::cout << "f1 = " << f1;
-	std::cout << "f2 = " << f2;
+	//Math::Algebra::Fraction f1(1, 2);
+	//Math::Algebra::Fraction f2(3, 3);
+	//std::cout << "f1 = " << f1;
+	//std::cout << "f2 = " << f2;
 
 
-	Alg::Fraction sum = f1 + f2;
-	std::cout << "f1 + f2 = " << sum;
+	//Alg::Fraction sum = f1 + f2;
+	//std::cout << "f1 + f2 = " << sum;
 
-	using Math::Algebra::Fraction;
+	//using Math::Algebra::Fraction;
 
-	Fraction f3;
-	f3(5, 6);
-	std::cout << f3;
+	//Fraction f3;
+	//f3(5, 6);
+	//std::cout << f3;
 
-	std::cout << std::boolalpha << (f1 < f2) << std::endl;
+	//std::cout << std::boolalpha << (f1 < f2) << std::endl;
 
 
 

@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMenu.cpp" />
+    <ClCompile Include="Island.cpp" />
     <ClCompile Include="md5.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Fraction.h" />
     <ClInclude Include="func.h" />
     <ClInclude Include="Inherit.h" />
+    <ClInclude Include="Island.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="md5.h" />
     <ClInclude Include="MYException.h" />
